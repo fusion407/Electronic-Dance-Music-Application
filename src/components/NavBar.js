@@ -52,7 +52,7 @@ function NavBar(props) {
           
           
           <NavLink
-            to="/add-set"
+            to="/addset"
             exact
             style={linkStyles}
             activeStyle={{
