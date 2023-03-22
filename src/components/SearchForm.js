@@ -16,7 +16,7 @@ function SearchForm() {
                         <legend>Search By:</legend>
 
                         <div>
-                          <Input type="radio" id="huey" name="drone" value="huey"
+                          <Input type="radio" id="huey" name="drone" value="artists"
                                  checked/>
                           <label for="huey">Artists</label>
                         </div>
@@ -50,7 +50,6 @@ function SearchForm() {
                 </div>
             </form>
             <Button variant="text">View All</Button>
-
         </>
     )
 }
