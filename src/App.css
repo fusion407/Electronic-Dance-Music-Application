@@ -4,7 +4,9 @@
   color: white;
   min-height: 100vh;
 }
-
+html {
+  background: #282c34;
+}
 .App-logo {
   margin-top: 1rem;
   margin-bottom: -2rem;
@@ -32,6 +34,9 @@
 }
 .searchForm{
   color: white;
+}
+.addSetForm{
+  margin: 3rem;
 }
 
 .App-link {
