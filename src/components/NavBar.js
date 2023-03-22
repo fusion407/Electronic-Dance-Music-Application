@@ -23,7 +23,7 @@ function NavBar(props) {
     return (
         <>
         <div className="App-logo">
-            <img src={logo}></img>
+            <img src={logo} alt="logo"></img>
         </div>
 
         <div>
