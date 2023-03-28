@@ -16,19 +16,19 @@ function SearchForm() {
                         <legend>Search By:</legend>
 
                         <div>
-                          <Input type="radio" id="huey" name="drone" value="artists"
+                          <Input type="radio" id="huey" name="artist" value="artist"
                                  checked/>
-                          <label for="huey">Artists</label>
+                          <label for="huey">Artist</label>
                         </div>
 
                         <div>
-                          <Input type="radio" id="dewey" name="drone" value="dewey"/>
-                          <label for="dewey">Events</label>
+                          <Input type="radio" id="dewey" name="drone" value="event"/>
+                          <label for="event">Event</label>
                         </div>
 
                         <div>
                           <Input type="radio" id="louie" name="drone" value="louie"/>
-                          <label for="louie">Genres</label>
+                          <label for="event">Genre</label>
                         </div>
                     </fieldset>
                     <Input 
