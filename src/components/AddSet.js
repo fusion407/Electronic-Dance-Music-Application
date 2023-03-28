@@ -1,7 +1,7 @@
 import AddSetForm from './AddSetForm'
 import { useState } from 'react'
 
-function AddSet({newSetData, setNewSetData}) {
+function AddSet({fullSetData, setFullSetData }) {
     // const[newSetData, setNewSetData] = useState()
     const[formData, setFormData] = useState({
         title: '',
@@ -14,18 +14,25 @@ function AddSet({newSetData, setNewSetData}) {
     });
 
     async function submitSetFormData() {
-        console.log(formData);
         await fetch("http://localhost:9292/fullsets", {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+            key : formData.id,
+            title : formData.title,
+            rating : formData.rating,
+            video_link: formData.video_link,
+            artist_id : formData.artist_id,
+            event_id : formData.event_id,
+            genre_id : formData.genre_id,
+            location_id : formData.location_id,
+        })
         })
             .then((r) => r.json())
-            .then((newSetData) =>{
-                console.log(newSetData)
-                setNewSetData(newSetData)
+            .then((data) =>{
+                setFullSetData((fullSetData) => [...fullSetData, data])
             })
         .catch((error) => console.log(error))
     }

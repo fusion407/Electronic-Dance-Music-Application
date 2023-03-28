@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import { Route, Switch } from "react-router-dom";
 
 function App() {
-  const [newSetData, setNewSetData] = useState()
+  // const [newSetData, setNewSetData] = useState()
   const [fullSetData, setFullSetData] = useState()
 
   useEffect(() => {
@@ -26,9 +26,9 @@ function App() {
           .catch((error) => console.log(error))
   }
     
-  function handleAddNewSet() {
-    console.log("new data: " + newSetData);
-  }
+  // function handleAddNewSet() {
+  //   console.log("new data: " + newSetData);
+  // }
 
   console.log(fullSetData)
 
@@ -46,9 +46,9 @@ function App() {
         </Route>
         <Route exact path="/addset">
           <AddSet 
-            newSetData={newSetData} 
-            setNewSetData={setNewSetData} 
-            handleAddNewSet={handleAddNewSet}
+            fullSetData={fullSetData} 
+            setFullSetData={setFullSetData} 
+            // handleAddNewSet={handleAddNewSet}
           />
         </Route>
       </Switch>
