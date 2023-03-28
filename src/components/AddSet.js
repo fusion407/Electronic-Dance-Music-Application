@@ -7,10 +7,10 @@ function AddSet({fullSetData, setFullSetData }) {
         title: '',
         rating: '',
         video_link: '',
-        artist_id: null,
-        event_id: null,
-        genre_id: null,
-        location_id: null
+        artist_id: '',
+        event_id: '',
+        genre_id: '',
+        location_id: ''
     });
 
     async function submitSetFormData() {
