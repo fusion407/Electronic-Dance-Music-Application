@@ -1,8 +1,8 @@
 import AddSetForm from './AddSetForm'
 import { useState } from 'react'
 
-function AddSet() {
-
+function AddSet({newSetData, setNewSetData}) {
+    // const[newSetData, setNewSetData] = useState()
     const[formData, setFormData] = useState({
         title: '',
         rating: '',
@@ -23,8 +23,9 @@ function AddSet() {
         body: JSON.stringify(formData)
         })
             .then((r) => r.json())
-            .then((newSet) =>{
-                console.log(newSet)
+            .then((newSetData) =>{
+                console.log(newSetData)
+                setNewSetData(newSetData)
             })
         .catch((error) => console.log(error))
     }
