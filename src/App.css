@@ -40,6 +40,14 @@ html {
 .searchForm{
   color: white;
 }
+.setCard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: auto;
+  justify-content: center;
+  align-items: flex-start;
+}
 fieldset {
   border-left : hidden;
   border-right : hidden;

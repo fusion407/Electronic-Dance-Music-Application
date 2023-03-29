@@ -5,9 +5,7 @@ function SearchForm({handleSubmit, handleClick, searchQuery, handleChange}) {
     const formStyle = {
         color : "white",
     }
-    // const searchStyle = {
-    //     color : 
-    // }
+
     return(
         <>
             <form onSubmit={handleSubmit}>

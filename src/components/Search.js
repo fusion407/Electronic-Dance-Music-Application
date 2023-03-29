@@ -1,8 +1,8 @@
-import SetCard from "./SetCard"
 import SearchForm from "./SearchForm"
+import SetCardList from "./SetCardList"
 import { useState } from 'react'
 
-function Search() {
+function Search({fullSetData}) {
     const[searchQuery, setSearchQuery] = useState({
         title: '',
     });
@@ -37,7 +37,12 @@ function Search() {
                 searchQuery={searchQuery}
                 handleChange={handleChange}
             />
-            <SetCard />
+            <div className="setCard">
+                <SetCardList 
+                    fullSetData={fullSetData}
+                />
+            </div>
+
         </>
       );
 }

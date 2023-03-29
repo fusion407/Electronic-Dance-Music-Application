@@ -1,8 +1,7 @@
 import AddSetForm from './AddSetForm'
 import { useState } from 'react'
 
-function AddSet({fullSetData, setFullSetData }) {
-    // const[newSetData, setNewSetData] = useState()
+function AddSet({setFullSetData}) {
     const[formData, setFormData] = useState({
         title: '',
         rating: '',

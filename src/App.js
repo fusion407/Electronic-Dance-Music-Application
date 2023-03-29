@@ -34,11 +34,12 @@ function App() {
       </div>
       <Switch>
         <Route exact path="/search">
-          <Search />
+          <Search 
+            fullSetData={fullSetData}
+          />
         </Route>
         <Route exact path="/addset">
           <AddSet 
-            fullSetData={fullSetData} 
             setFullSetData={setFullSetData} 
           />
         </Route>
