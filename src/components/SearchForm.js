@@ -1,9 +1,7 @@
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
-import { useState} from 'react'
 
-function SearchForm() {
-    const[formData, setFormData] = useState();
+function SearchForm({handleSubmit, handleClick, searchQuery, handleChange}) {
     const formStyle = {
         color : "white",
     }
@@ -12,73 +10,81 @@ function SearchForm() {
     // }
     return(
         <>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="searchForm">
                     <fieldset>
                         <legend>Search By:</legend>
                         <div>
                             <Input 
-                            type="button" 
-                            id="artists" 
-                            name="search" 
-                            value="artists"
-                            style={formStyle}
+                                type="button" 
+                                id="artists" 
+                                name="search" 
+                                value="artists"
+                                style={formStyle}
+                                onClick={handleClick}
                             />
                         </div>
 
                         <div>
                             <Input 
-                            type="button" 
-                            id="events" 
-                            name="search" 
-                            value="events"
-                            style={formStyle}
+                                type="button" 
+                                id="events" 
+                                name="search" 
+                                value="events"
+                                style={formStyle}
+                                onClick={handleClick}
                             />
                         </div>
 
                         <div>
                             <Input 
-                            type="button" 
-                            id="genres" 
-                            name="search" 
-                            value="genres"
-                            style={formStyle}
+                                type="button" 
+                                id="genres" 
+                                name="search" 
+                                value="genres"
+                                style={formStyle}
+                                onClick={handleClick}
                             />
                         </div>
 
                         <div>
                             <Input 
-                            type="button" 
-                            id="locations" 
-                            name="search" 
-                            value="locations"
-                            style={formStyle}
+                                type="button" 
+                                id="locations" 
+                                name="search" 
+                                value="locations"
+                                style={formStyle}
+                                onClick={handleClick}
                             />
                         </div>
-                        <h3>OR . . .</h3>
+
+                        <p>OR . . .</p>
 
                         <div>
                             <Input 
-                            type="search" 
-                            name="title" 
-                            value={formData}
-                            style={formStyle}
-                            // onChange={handleChange}
-                            placeholder="Search By Title" 
+                                type="search" 
+                                name="title" 
+                                value={searchQuery.title}
+                                style={formStyle}
+                                onChange={handleChange}
+                                placeholder="Search By Title" 
                             />
                         </div>
+
+                        <div>
+                            <Input
+                                type="submit"
+                                name="submit"
+                                style={formStyle}
+                                placeholder="Search"
+                            />
+                        </div>
+
                     </fieldset>
 
                 </div>
 
-                <div>
-                    <Input
-                        type="submit"
-                        name="submit"
-                        style={formStyle}
-                        placeholder="Search"
-                    />
-                </div>
+
 
             </form>
             <Button variant="text">View All</Button>

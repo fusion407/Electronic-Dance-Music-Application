@@ -43,8 +43,11 @@ html {
 fieldset {
   border-left : hidden;
   border-right : hidden;
-
+  font-size: 20px;
 }
+/* h3 {
+  text-decoration: underline;
+} */
 
 .App-link {
   color: #61dafb;
