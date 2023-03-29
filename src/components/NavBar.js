@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from '../logo.svg';
+// import logo from '../logo.svg';
 
 
 const linkStyles = {
@@ -22,9 +22,10 @@ function NavBar(props) {
 
     return (
         <>
-        <div className="App-logo">
-            <img src={logo} alt="logo"></img>
-        </div>
+        
+        {/* <div className="App-logo">
+          <img src={logo} alt="logo"></img>
+        </div> */}
 
         <div>
           <NavLink
