@@ -7,43 +7,70 @@ function SearchForm() {
     const formStyle = {
         color : "white",
     }
+    // const searchStyle = {
+    //     color : 
+    // }
     return(
         <>
             <form>
                 <div className="searchForm">
-
                     <fieldset>
                         <legend>Search By:</legend>
-
                         <div>
-                          <Input type="radio" id="artists" name="search" value="artists"
-                                 checked/>
-                          <label for="artists">Artists</label>
+                            <Input 
+                            type="button" 
+                            id="artists" 
+                            name="search" 
+                            value="artists"
+                            style={formStyle}
+                            />
                         </div>
 
                         <div>
-                          <Input type="radio" id="events" name="search" value="events"/>
-                          <label for="events">Events</label>
+                            <Input 
+                            type="button" 
+                            id="events" 
+                            name="search" 
+                            value="events"
+                            style={formStyle}
+                            />
                         </div>
 
                         <div>
-                          <Input type="radio" id="genres" name="search" value="genres"/>
-                          <label for="genres">Genres</label>
+                            <Input 
+                            type="button" 
+                            id="genres" 
+                            name="search" 
+                            value="genres"
+                            style={formStyle}
+                            />
                         </div>
+
                         <div>
-                          <Input type="radio" id="locations" name="search" value="locations"/>
-                          <label for="locations">Locations</label>
+                            <Input 
+                            type="button" 
+                            id="locations" 
+                            name="search" 
+                            value="locations"
+                            style={formStyle}
+                            />
+                        </div>
+                        <h3>OR . . .</h3>
+
+                        <div>
+                            <Input 
+                            type="search" 
+                            name="title" 
+                            value={formData}
+                            style={formStyle}
+                            // onChange={handleChange}
+                            placeholder="Search By Title" 
+                            />
                         </div>
                     </fieldset>
-                    <Input 
-                        type="search" 
-                        name="title" 
-                        value={formData}
-                        style={formStyle}
-                        // onChange={handleChange}
-                        placeholder="Search Query" 
-                    />
+
                 </div>
+
                 <div>
                     <Input
                         type="submit"
@@ -52,6 +79,7 @@ function SearchForm() {
                         placeholder="Search"
                     />
                 </div>
+
             </form>
             <Button variant="text">View All</Button>
         </>

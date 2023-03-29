@@ -30,14 +30,21 @@ html {
   font-size: calc(3px + 2vmin);
   border-style: solid;
   border-color: black;
+  border-left: hidden; 
+  border-right: hidden; 
+  border-top: hidden; 
+
+
   color: white;
 }
 .searchForm{
   color: white;
 }
-/* .addSetForm{
-  margin: 3rem;
-} */
+fieldset {
+  border-left : hidden;
+  border-right : hidden;
+
+}
 
 .App-link {
   color: #61dafb;
