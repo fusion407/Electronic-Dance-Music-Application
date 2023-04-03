@@ -21,7 +21,7 @@ function SetCard(props) {
               component="iframe"
               alt="green iguana"
               height="140"
-              image={props.video_link}
+              src={props.video_link}
             />
 
             <CardContent>
@@ -37,21 +37,24 @@ function SetCard(props) {
               </Typography>
 
               <Typography 
+                component="span"
                 variant="body2" 
                 color="text.primary"
               >
-                <p>
-                  Artist: {props.artist} 
-                </p>
-                <p>
-                  Genre: {props.genre}
-                </p>
-                <p>
-                  Event: {props.event} 
-                </p>
-                <p>
-                  Location: {props.location}
-                </p>
+                <ul>
+                  <li>
+                    Artist: {props.artist} 
+                  </li>
+                  <li>
+                    Genre: {props.genre}
+                  </li>
+                  <li>
+                    Event: {props.event} 
+                  </li>
+                  <li>
+                    Location: {props.location}
+                  </li>
+                </ul>
               </Typography>
 
             </CardContent>
