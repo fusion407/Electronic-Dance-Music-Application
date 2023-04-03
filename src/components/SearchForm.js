@@ -1,9 +1,9 @@
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 
-function SearchForm({handleSubmit, handleClick, searchQuery, handleChange}) {
+function SearchForm({displayAllSets, handleSubmit, handleClick, searchQuery, handleChange}) {
     const formStyle = {
-        color : "white",
+        color : "#3b3a30",
     }
 
     return(
@@ -85,7 +85,7 @@ function SearchForm({handleSubmit, handleClick, searchQuery, handleChange}) {
 
 
             </form>
-            <Button variant="text">View All</Button>
+            <Button onClick={displayAllSets} variant="text">View All</Button>
         </>
     )
 }

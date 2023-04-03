@@ -16,7 +16,7 @@ function SetCardList({fullSetData}) {
     )
     return(
         <>
-            {fullSetDataList}
+            {fullSetData ? fullSetDataList : ''}
         </>
     )
 }

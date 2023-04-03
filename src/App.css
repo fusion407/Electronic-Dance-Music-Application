@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  background-color: #282c34;
-  color: white;
+  background-color: #eaece5;
+  color: #3b3a30;
   min-height: 100vh;
 }
 html {
@@ -21,7 +21,7 @@ html {
   margin-bottom : -3em;
 }
 .App-header {
-  background-color: #3c424d;
+  background-color: #c0ded9;
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
@@ -29,16 +29,16 @@ html {
   justify-content: center;
   font-size: calc(3px + 2vmin);
   border-style: solid;
-  border-color: black;
+  border-color: #b2c2bf;
   border-left: hidden; 
   border-right: hidden; 
   border-top: hidden; 
 
 
-  color: white;
+  color: #3b3a30;
 }
 .searchForm{
-  color: white;
+  color: #3b3a30;
 }
 .setCardList {
   display: flex;
@@ -54,6 +54,9 @@ html {
 }
 .setCard p {
   font-size: medium;
+}
+.cardTitles {
+  font-weight: bold;
 }
 fieldset {
   border-left : hidden;

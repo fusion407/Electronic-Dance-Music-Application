@@ -6,6 +6,7 @@ function Search({fullSetData}) {
     const[searchQuery, setSearchQuery] = useState({
         title: '',
     });
+    const[displaySets, setDisplaySets] = useState(false);
 
     function handleClick(e) {
         e.preventDefault();
@@ -28,21 +29,33 @@ function Search({fullSetData}) {
         console.log(searchQuery)
         console.log(e);
     }
-
+    function displayAllSets(e) {
+        e.preventDefault();
+        console.log("clicked the view all button")
+        if(!displaySets) {
+            setDisplaySets(true)
+        } else {
+            setDisplaySets(false)
+        }
+    }
     return (
         <>
             <SearchForm 
+                displayAllSets={displayAllSets}
                 handleSubmit={handleSubmit}
                 handleClick={handleClick}
                 searchQuery={searchQuery}
                 handleChange={handleChange}
             />
             <div className="setCardList">
-                <SetCardList 
-                    fullSetData={fullSetData}
-                />
+                {displaySets ?
+                    <SetCardList 
+                        fullSetData={fullSetData}
+                    />
+                    :
+                    ''
+                }
             </div>
-
         </>
       );
 }

@@ -10,10 +10,11 @@ function App() {
   const [fullSetData, setFullSetData] = useState()
 
   useEffect(() => {
+    console.log("fetching data...")
     loadAllSetData();
   }, [])
 
-  async function loadAllSetData() {
+  const loadAllSetData = async () => {
     await fetch("http://localhost:9292/fullsets", {
       method: "GET",
       headers: {
@@ -33,19 +34,23 @@ function App() {
         <NavBar />
       </div>
       <Switch>
+
         <Route exact path="/search">
           <Search 
             fullSetData={fullSetData}
           />
         </Route>
+
         <Route exact path="/addset">
           <AddSet 
             setFullSetData={setFullSetData} 
           />
         </Route>
+
         <Route exact path="/">
           <Home />
         </Route>
+
       </Switch>
 
     </div>

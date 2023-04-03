@@ -1,7 +1,7 @@
 import { Input } from "@mui/material";
 
 const formStyle = {
-    color : "white",
+    color : "#3b3a30",
     margin : "5px"
 }
 

@@ -8,21 +8,23 @@ import Typography from '@mui/material/Typography';
 
 function SetCard(props) {
 
+  const {title, rating, video_link, artist, genre, event, location} = props
+
     return(
         <div className='setCard'>
           <Card sx={{ 
                 margin: "1rem", 
                 maxWidth: 345, 
-                background: "#3c424d"
+                background: "#b2c2bf"
                 }} 
                 variant="outlined">
 
-            <CardMedia
+            {/* <CardMedia
               component="iframe"
               alt="green iguana"
               height="140"
-              src={props.video_link}
-            />
+              src={video_link}
+            /> */}
 
             <CardContent>
 
@@ -32,7 +34,7 @@ function SetCard(props) {
                 component="div"
               >
                 <h4>
-                  {props.title}
+                  {title}
                 </h4>
               </Typography>
 
@@ -41,20 +43,25 @@ function SetCard(props) {
                 variant="body2" 
                 color="text.primary"
               >
-                <ul>
-                  <li>
-                    Artist: {props.artist} 
-                  </li>
-                  <li>
-                    Genre: {props.genre}
-                  </li>
-                  <li>
-                    Event: {props.event} 
-                  </li>
-                  <li>
-                    Location: {props.location}
-                  </li>
-                </ul>
+                <div>
+                  <span className="cardTitles">Artist:</span> {artist} 
+                </div>
+                <div>
+                  <span className="cardTitles">Genre:</span> {genre}
+                </div>
+                <div>
+                  <span className="cardTitles">Event:</span> {event} 
+                </div>
+                <div>
+                  <span className="cardTitles">Location:</span> {location}
+                </div>
+                <div>
+                  <a href={video_link}>Video</a>
+                </div>
+                <div>
+                  <span className="cardTitles">Rating:</span> {rating}
+                </div>
+
               </Typography>
 
             </CardContent>
