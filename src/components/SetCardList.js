@@ -8,10 +8,10 @@ function SetCardList({fullSetData}) {
             title={data.title}
             rating={data.rating}
             video_link={data.video_link}
-            artist_id={data.artist_id}
-            event_id={data.event_id}
-            genre_id={data.genre_id}
-            location_id={data.location_id}
+            artist={data.artist.name}
+            event={data.event.name}
+            genre={data.genre.name}
+            location={data.location.name}
         />
     )
     return(

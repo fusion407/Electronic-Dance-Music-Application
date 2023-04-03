@@ -7,8 +7,9 @@ import Typography from '@mui/material/Typography';
 
 
 function SetCard(props) {
+
     return(
-        <div>
+        <div className='setCard'>
           <Card sx={{ 
                 margin: "1rem", 
                 maxWidth: 345, 
@@ -20,7 +21,7 @@ function SetCard(props) {
               component="iframe"
               alt="green iguana"
               height="140"
-              image="https://excision.ca/wp-content/uploads/2021/03/Excision_x_fbog_1200_600.jpg"
+              image={props.video_link}
             />
 
             <CardContent>
@@ -30,14 +31,27 @@ function SetCard(props) {
                 variant="h5" 
                 component="div"
               >
-                {props.title}
+                <h4>
+                  {props.title}
+                </h4>
               </Typography>
 
               <Typography 
                 variant="body2" 
                 color="text.primary"
               >
-                {props.artist_id} - {props.event_id} - {props.location_id}
+                <p>
+                  Artist: {props.artist} 
+                </p>
+                <p>
+                  Genre: {props.genre}
+                </p>
+                <p>
+                  Event: {props.event} 
+                </p>
+                <p>
+                  Location: {props.location}
+                </p>
               </Typography>
 
             </CardContent>
@@ -46,7 +60,6 @@ function SetCard(props) {
               <Button size="small">Edit</Button>
               <Button size="small">Delete</Button>
             </CardActions>
-
           </Card>
         </div>
     )

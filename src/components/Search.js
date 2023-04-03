@@ -37,7 +37,7 @@ function Search({fullSetData}) {
                 searchQuery={searchQuery}
                 handleChange={handleChange}
             />
-            <div className="setCard">
+            <div className="setCardList">
                 <SetCardList 
                     fullSetData={fullSetData}
                 />
