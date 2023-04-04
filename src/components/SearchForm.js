@@ -74,7 +74,7 @@ function SearchForm({displayAllSets, handleSubmit, handleClick, searchQuery, han
                                 type="submit"
                                 name="submit"
                                 style={formStyle}
-                                placeholder="Search"
+                                placeholder="Submit"
                             />
                         </div>
 
