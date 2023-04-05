@@ -1,14 +1,14 @@
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 
-function SearchForm({displayAllSets, handleSubmit, handleClick, searchQuery, handleChange}) {
-    const formStyle = {
-        color : "#3b3a30",
-    }
+function SearchForm({handleDisplayAllSets}) {
+    // const formStyle = {
+    //     color : "#3b3a30",
+    // }
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
                 <div className="searchForm">
                     <fieldset>
                         <legend>Search By:</legend>
@@ -84,8 +84,8 @@ function SearchForm({displayAllSets, handleSubmit, handleClick, searchQuery, han
 
 
 
-            </form>
-            <Button onClick={displayAllSets} variant="text">View All</Button>
+            </form> */}
+            <Button onClick={handleDisplayAllSets} variant="text">View All</Button>
         </>
     )
 }
