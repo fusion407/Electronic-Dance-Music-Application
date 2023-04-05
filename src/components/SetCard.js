@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 function SetCard(props) {
 
-  const {title, rating, video_link, artist, genre, event, location} = props
+  const {title, rating, video_link, artist, location, event} = props
 
     return(
         <div className='setCard'>
@@ -46,9 +46,7 @@ function SetCard(props) {
                 <div>
                   <span className="cardTitles">Artist:</span> {artist} 
                 </div>
-                <div>
-                  <span className="cardTitles">Genre:</span> {genre}
-                </div>
+
                 <div>
                   <span className="cardTitles">Event:</span> {event} 
                 </div>
