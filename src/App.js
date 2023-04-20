@@ -3,6 +3,8 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Search from './components/Search'
 import AddSet from './components/AddSet'
+import EditSet from "./components/EditSet"
+
 import { useState, useEffect } from 'react'
 import { Route, Switch } from "react-router-dom";
 
@@ -47,7 +49,12 @@ function App() {
             setFullSetData={setFullSetData} 
           />
         </Route>
-
+        <Route exact path="/edit">
+          <EditSet 
+            fullSetData={fullSetData}
+            setFullSetData={setFullSetData} 
+          />
+        </Route>
         <Route exact path="/">
           <Home />
         </Route>

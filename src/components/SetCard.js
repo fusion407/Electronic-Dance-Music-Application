@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent';
 // import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { NavLink } from "react-router-dom";
 
 // TODO:
 //   - Create edit/PATCH route for clicked set card
@@ -68,7 +69,13 @@ function SetCard(props) {
             </CardContent>
 
             <CardActions>
-              <Button size="small">Edit</Button>
+              <NavLink
+              to="/edit"
+              exact
+              >
+                <Button size="small">Edit</Button>
+              </NavLink>
+              
               <Button size="small">Delete</Button>
             </CardActions>
           </Card>
