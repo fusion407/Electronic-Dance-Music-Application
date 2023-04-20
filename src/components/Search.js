@@ -2,7 +2,7 @@ import SearchForm from "./SearchForm"
 import SetCardList from "./SetCardList"
 import { useState } from 'react'
 
-function Search({fullSetData}) {
+function Search({fullSetData, setSelectedSet}) {
 
     // const[searchQuery, setSearchQuery] = useState({
     //     title: '',
@@ -64,6 +64,7 @@ function Search({fullSetData}) {
                 {displayAllSets ?
                     <SetCardList 
                         fullSetData={fullSetData}
+                        setSelectedSet={setSelectedSet}
                     />
                     :
                     ''

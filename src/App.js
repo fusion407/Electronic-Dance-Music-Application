@@ -10,6 +10,7 @@ import { Route, Switch } from "react-router-dom";
 
 function App() {
   const [fullSetData, setFullSetData] = useState()
+  const [selectedSet, setSelectedSet] = useState()
 
   useEffect(() => {
     console.log("fetching data...")
@@ -40,6 +41,7 @@ function App() {
         <Route exact path="/search">
           <Search 
             fullSetData={fullSetData}
+            setSelectedSet={setSelectedSet}
           />
         </Route>
 
@@ -53,6 +55,7 @@ function App() {
           <EditSet 
             fullSetData={fullSetData}
             setFullSetData={setFullSetData} 
+            selectedSet={selectedSet}
           />
         </Route>
         <Route exact path="/">

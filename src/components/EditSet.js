@@ -1,7 +1,7 @@
 import EditSetForm from "./EditSetForm"
 import { useState } from 'react'
 
-function EditSet() {
+function EditSet({selectedSet}) {
 
     const[formData, setFormData] = useState({
         title: '',
@@ -14,6 +14,7 @@ function EditSet() {
 
     async function submitSetFormData() {
         console.log("I SUBMIT EDIT DATA")
+        console.log(selectedSet)
         // checkFormIds(formData.artist_id, formData.event_id, formData.location_id)
         // console.log("artist id: " + artistId)
         // console.log("event id: " + eventId)
@@ -57,6 +58,7 @@ function EditSet() {
             <EditSetForm 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit}
+                selectedSet={selectedSet}
                 formData={formData}
             />
         </>

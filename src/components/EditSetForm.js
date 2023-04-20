@@ -5,7 +5,7 @@ const formStyle = {
     margin : "5px"
 }
 
-function EditSetForm({formData, handleSubmit, handleChange}) {
+function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
     return(
         <>
         <h1>Edit Set</h1>
@@ -17,7 +17,7 @@ function EditSetForm({formData, handleSubmit, handleChange}) {
                         value={formData.title}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Title"
+                        placeholder={selectedSet.title}
                     />
                 </div>
                 <div>
@@ -27,7 +27,7 @@ function EditSetForm({formData, handleSubmit, handleChange}) {
                         value={formData.rating}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Rating"
+                        placeholder={selectedSet.rating}
                 /> 
                 </div>
                 <div>
@@ -37,7 +37,7 @@ function EditSetForm({formData, handleSubmit, handleChange}) {
                         value={formData.video_link}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Video Link"
+                        placeholder={selectedSet.video_link}
                     />
                 </div>
                 <div>
@@ -47,7 +47,7 @@ function EditSetForm({formData, handleSubmit, handleChange}) {
                         value={formData.artist_id}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Artist"
+                        placeholder={selectedSet.artist}
                     />
 
                 </div>
@@ -58,7 +58,7 @@ function EditSetForm({formData, handleSubmit, handleChange}) {
                         value={formData.event_id}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Event"
+                        placeholder={selectedSet.event}
                     />
 
                 </div>
@@ -69,7 +69,7 @@ function EditSetForm({formData, handleSubmit, handleChange}) {
                         value={formData.location_id}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Location"
+                        placeholder={selectedSet.location}
                     />
                 </div>
                 <div>
@@ -77,7 +77,7 @@ function EditSetForm({formData, handleSubmit, handleChange}) {
                         type="submit"
                         name="submit"
                         style={formStyle}
-                        placeholder="Submit"
+                        placeholder={selectedSet.title}
                     />
                 </div>
             </form>
