@@ -5,6 +5,9 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+// TODO:
+//   - Create edit/PATCH route for clicked set card
+//   - Make DELETE request to item whose delete button has been clicked
 
 function SetCard(props) {
 

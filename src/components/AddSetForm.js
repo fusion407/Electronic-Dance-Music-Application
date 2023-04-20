@@ -78,16 +78,6 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                 <div>
                     <Input
                         type="text"
-                        name="genre_id"
-                        value={formData.genre_id}
-                        onChange={handleChange}
-                        style={formStyle}
-                        placeholder="Genre"
-                    />
-                </div>
-                <div>
-                    <Input
-                        type="text"
                         name="location_id"
                         value={formData.location_id}
                         onChange={handleChange}

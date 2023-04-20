@@ -1,5 +1,9 @@
 import Button from '@mui/material/Button';
-import Input from '@mui/material/Input';
+// import Input from '@mui/material/Input';
+
+// TODO:
+//   - Create search bar that will look through fetched data to match similar title
+
 
 function SearchForm({handleDisplayAllSets}) {
     // const formStyle = {

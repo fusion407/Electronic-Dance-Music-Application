@@ -43,6 +43,7 @@ function App() {
 
         <Route exact path="/addset">
           <AddSet 
+            fullSetData={fullSetData}
             setFullSetData={setFullSetData} 
           />
         </Route>
