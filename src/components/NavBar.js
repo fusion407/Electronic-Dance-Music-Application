@@ -18,7 +18,7 @@ const linkStyles = {
   };
 
 
-function NavBar(props) {
+function NavBar() {
 
     return (
         <>
@@ -64,6 +64,7 @@ function NavBar(props) {
           </NavLink>
           
         </div>
+
         </>
     );
   }

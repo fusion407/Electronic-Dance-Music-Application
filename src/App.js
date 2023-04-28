@@ -9,14 +9,18 @@ import { useState, useEffect } from 'react'
 import { Route, Switch } from "react-router-dom";
 
 function App() {
+
+
   const [fullSetData, setFullSetData] = useState()
   const [selectedSet, setSelectedSet] = useState()
 
+  // Fetch all set data upon initial render
   useEffect(() => {
     console.log("fetching data...")
     loadAllSetData();
   }, [])
 
+  // Set the state of fullSetData with fetched data
   const loadAllSetData = async () => {
     await fetch("http://localhost:9292/fullsets", {
       method: "GET",
@@ -29,18 +33,23 @@ function App() {
           .catch((error) => console.log(error))
   }
 
+
   console.log(fullSetData)
+
 
   return (
     <div className="App">
+
       <div className="App-header">
         <NavBar />
       </div>
+
       <Switch>
 
         <Route exact path="/search">
           <Search 
             fullSetData={fullSetData}
+            setFullSetData={setFullSetData}
             setSelectedSet={setSelectedSet}
           />
         </Route>
@@ -51,6 +60,7 @@ function App() {
             setFullSetData={setFullSetData} 
           />
         </Route>
+
         <Route exact path="/edit">
           <EditSet 
             fullSetData={fullSetData}
@@ -58,6 +68,7 @@ function App() {
             selectedSet={selectedSet}
           />
         </Route>
+
         <Route exact path="/">
           <Home />
         </Route>
@@ -67,5 +78,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

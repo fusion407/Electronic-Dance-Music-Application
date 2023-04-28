@@ -1,7 +1,8 @@
 import AddSetForm from './AddSetForm'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function AddSet({fullSetData, setFullSetData}) {
+
     const[formData, setFormData] = useState({
         title: '',
         rating: '',
@@ -10,69 +11,27 @@ function AddSet({fullSetData, setFullSetData}) {
         event_id: '',
         location_id: ''
     });
-    const[artistId, setArtistId] = useState();
-    const[eventId, setEventId] = useState();
-    const[locationId, setLocationId] = useState();
-
-    // useEffct(() => {
-    //     console.log("rendering....")
-    //   }, [artistId, eventId, locationId])
 
 
-    // WORK IN PROGRESS 
-    // TODO:
-    //   - If ID has been found, set the found ID to be in POST form
-    //   - If no ID has been found, make POST to artist/event/location with new ID
-    //   - Refactor backend to fit code
+// WORK IN PROGRESS : 
+// What is the best way to check if forms data exists in database and POST unexisting items accordingly?
+// How can I translate the forms artist, event, and locations from string into it's new ID after POST request is made?
+//    - instead of having to write forms ID (1, 2, 3, etc) I need to be able to input the name itself
+//    - if the forms ID exists and it's name is found in the database, then the value of the form is the ID of found item
+//    - if the forms ID does not exist and name doesn't exist in database whatsoever, call POST request for new item to be created
+//        - set new items ID to be the newly created ID
     function checkFormIds(artist, event, location) {
         console.log("artist: " + artist)
         console.log("event: " + event)
         console.log("location: " + location)
-        let artistFound = false;
-        let eventFound = false;
-        let locationFound = false;
-        fullSetData.find(element => {
-            if(element.artist.name === artist) {
-                console.log("found artist: " + artist)
-                console.log(element)
-                setArtistId(element.artist_id)
-                return artistFound = true;
-            } 
-        })
-        fullSetData.find(element => {
-            if(element.event.name === event) {
-                console.log("found event: " + event)
-                console.log(element)
-                setEventId(element.event_id)
-                return eventFound = true;
-            } 
-        })
-        fullSetData.find(element => {
-            if(element.event.location.name === location) {
-                console.log("found location: " + location)
-                console.log(element)
-                setLocationId(element.event.location_id)
-                return locationFound = true;
-            } 
-        })
-        if(!artistFound) {
-            console.log("Artist not found")
-        }
-        if(!eventFound) {
-            console.log("Event not found")
-        }
-        if(!locationFound) {
-            console.log("Location not found")
-        }
-
-
+        
     }
 
+    // POST submitted form data
     async function submitSetFormData() {
         checkFormIds(formData.artist_id, formData.event_id, formData.location_id)
-        // console.log("artist id: " + artistId)
-        // console.log("event id: " + eventId)
-        // console.log("location id: " + locationId)
+
+
         // await fetch("http://localhost:9292/fullsets", {
         // method: "POST",
         // headers: {
@@ -95,6 +54,10 @@ function AddSet({fullSetData, setFullSetData}) {
         // .catch((error) => console.log(error))
     }
 
+
+    
+    // Event listeners to handle form change and submission
+    
     function handleChange(e) {
         e.preventDefault();
         console.log(e.target.value)
@@ -103,19 +66,28 @@ function AddSet({fullSetData, setFullSetData}) {
             [e.target.name]: e.target.value,
         });
     }
+
+
     function handleSubmit(e) {
         e.preventDefault();
         submitSetFormData(e);
 
     }
+
+
     return(
         <>
+
             <AddSetForm 
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit}
                 formData={formData}
             />
+
         </>
     )
 }
+
+
+
 export default AddSet;

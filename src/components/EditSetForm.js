@@ -8,8 +8,11 @@ const formStyle = {
 function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
     return(
         <>
+
         <h1>Edit Set</h1>
+
             <form className="addSetForm" onSubmit={handleSubmit}>
+
                 <div>
                     <Input
                         type="text"
@@ -17,9 +20,10 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                         value={formData.title}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder={selectedSet.title}
+                        placeholder={"title"}
                     />
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -27,9 +31,10 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                         value={formData.rating}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder={selectedSet.rating}
-                /> 
+                        placeholder={"rating"}
+                    /> 
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -37,9 +42,10 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                         value={formData.video_link}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder={selectedSet.video_link}
+                        placeholder={"video_link"}
                     />
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -47,10 +53,10 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                         value={formData.artist_id}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder={selectedSet.artist}
+                        placeholder={"artist"}
                     />
-
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -58,10 +64,10 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                         value={formData.event_id}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder={selectedSet.event}
+                        placeholder={"event"}
                     />
-
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -69,17 +75,19 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                         value={formData.location_id}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder={selectedSet.location}
+                        placeholder={"location"}
                     />
                 </div>
+
                 <div>
                     <Input
                         type="submit"
                         name="submit"
                         style={formStyle}
-                        placeholder={selectedSet.title}
+                        placeholder={"title"}
                     />
                 </div>
+                
             </form>
         </>
     )

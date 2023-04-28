@@ -1,25 +1,23 @@
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-// import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { NavLink } from "react-router-dom";
-import { useState } from 'react'
 
-// TODO:
-//   - Create edit/PATCH route for clicked set card
-//   - Make DELETE request to item whose delete button has been clicked
 
 function SetCard(props) {
 
-  const {id, title, rating, video_link, artist, location, event, setSelectedSet} = props
+  const {id, title, rating, video_link, artist, location, event, setSelectedSet, handleDeleteSet} = props
 
+
+  // Event listener for the edit button, which routes to /edit page with selected cards values as default form values
   function handleSelectSet() {
     console.log("set selected")
     console.log(props)
     setSelectedSet(props)
   }
+
 
     return(
         <div className='setCard'>
@@ -31,7 +29,6 @@ function SetCard(props) {
                 variant="outlined">
 
             <CardContent>
-
               <Typography 
                 gutterBottom 
                 variant="h5" 
@@ -65,7 +62,6 @@ function SetCard(props) {
                 </div>
 
               </Typography>
-
             </CardContent>
 
             <CardActions>
@@ -76,8 +72,9 @@ function SetCard(props) {
                 <Button onClick={handleSelectSet} size="small">Edit</Button>
               </NavLink>
               
-              <Button size="small">Delete</Button>
+              <Button onClick={() => handleDeleteSet(id)} size="small">Delete</Button>
             </CardActions>
+
           </Card>
         </div>
     )

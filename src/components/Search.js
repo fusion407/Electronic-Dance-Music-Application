@@ -2,47 +2,12 @@ import SearchForm from "./SearchForm"
 import SetCardList from "./SetCardList"
 import { useState } from 'react'
 
-function Search({fullSetData, setSelectedSet}) {
+function Search({fullSetData, setFullSetData, setSelectedSet}) {
 
-    // const[searchQuery, setSearchQuery] = useState({
-    //     title: '',
-    // });
+    // Boolean that determines the set lists visibility
     const[displayAllSets, setDisplayAllSets] = useState(false);
-    // const getFilteredItems = (searchQuery, fullSetData) => {
-    //     if(!searchQuery) {
-    //         return fullSetData
-    //     }
-    //     return fullSetData.filter((set) => set.title.includes(searchQuery))
-    // }
-    // const filteredItems = getFilteredItems(searchQuery, fullSetData)
 
-    // function handleClick(e) {
-    //     e.preventDefault();
-    //     console.log("clicked!")
-    //     console.log(e.target.value)
-    //     console.log(e)
-    // }
-
-    // function handleChange(e) {
-    //     e.preventDefault();
-    //     setSearchQuery({
-    //         ...searchQuery,
-    //         [e.target.name]: e.target.value,
-    //     });
-    // }
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log("submitted!")
-    //     console.log(searchQuery)
-    //     if(!displayAllSets) {
-    //         console.log("The view all is indeed false")
-    //         console.log(displayAllSets)
-    //     } else {
-    //         console.log("the view all is indeed true")
-    //         console.log(displayAllSets)
-    //     }
-    // }
+    // Event listener to handle above boolean
     function handleDisplayAllSets(e) {
         e.preventDefault();
         if(!displayAllSets) {
@@ -51,20 +16,42 @@ function Search({fullSetData, setSelectedSet}) {
             setDisplayAllSets(false)
         }
     }
+
+    // DELETE selected set card
+    const handleDeleteSet = async (id) => {
+        console.log(id)
+        fetch(`http://localhost:9292/fullsets/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type" : "application/json",
+            },
+        })
+            .then((res) => {
+                if(res.status !== 200) {
+                    return;
+                } else {
+                    setFullSetData(
+                        fullSetData.filter((fullSetData) => {
+                            return fullSetData.id !== id;
+                        })
+                    )
+                }
+            })  
+            .catch((error) => console.log(error))
+    }
+
+
     return (
         <>
             <SearchForm 
                 handleDisplayAllSets={handleDisplayAllSets}
-                // handleSubmit={handleSubmit}
-                // handleClick={handleClick}
-                // searchQuery={searchQuery}
-                // handleChange={handleChange}
             />
             <div className="setCardList">
                 {displayAllSets ?
                     <SetCardList 
                         fullSetData={fullSetData}
                         setSelectedSet={setSelectedSet}
+                        handleDeleteSet={handleDeleteSet}
                     />
                     :
                     ''

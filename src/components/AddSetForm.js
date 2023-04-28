@@ -5,11 +5,17 @@ const formStyle = {
     margin : "5px"
 }
 
+
 function AddSetForm({formData, handleSubmit, handleChange}) {
+
+
+    // Return function displays "Add Set Form",  event listeners in form trigger change and submit functions within AddSet component
     return(
         <>
         <h1>Add New Set</h1>
+
             <form className="addSetForm" onSubmit={handleSubmit}>
+
                 <div>
                     <Input
                         type="text"
@@ -20,6 +26,7 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                         placeholder="Title"
                     />
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -28,8 +35,9 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                         onChange={handleChange}
                         style={formStyle}
                         placeholder="Rating"
-                /> 
+                    /> 
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -40,6 +48,7 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                         placeholder="Video Link"
                     />
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -49,21 +58,8 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                         style={formStyle}
                         placeholder="Artist"
                     />
-                    {/* <FormControl fullWidth>
-                        <InputLabel id="artist-select-label">Artist</InputLabel>
-                        <Select
-                            labelId="artist-select-label"
-                            id="artist-select"
-                            value={formData.artist}
-                            label="Artist"
-                            style={formStyle}
-                            onChange={handleChange}
-                        >
-                            <MenuItem value={1}>Dubstep</MenuItem>
-                        </Select>
-                    </FormControl> */}
-
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -73,8 +69,8 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                         style={formStyle}
                         placeholder="Event"
                     />
-
                 </div>
+
                 <div>
                     <Input
                         type="text"
@@ -85,6 +81,7 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                         placeholder="Location"
                     />
                 </div>
+
                 <div>
                     <Input
                         type="submit"
@@ -93,6 +90,7 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                         placeholder="Submit"
                     />
                 </div>
+
             </form>
         </>
     )
