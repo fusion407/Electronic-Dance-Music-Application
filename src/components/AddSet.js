@@ -20,17 +20,37 @@ function AddSet({fullSetData, setFullSetData}) {
 //    - if the forms ID exists and it's name is found in the database, then the value of the form is the ID of found item
 //    - if the forms ID does not exist and name doesn't exist in database whatsoever, call POST request for new item to be created
 //        - set new items ID to be the newly created ID
-    function checkFormIds(artist, event, location) {
-        console.log("artist: " + artist)
-        console.log("event: " + event)
-        console.log("location: " + location)
-        
-    }
+
 
     // POST submitted form data
     async function submitSetFormData() {
-        checkFormIds(formData.artist_id, formData.event_id, formData.location_id)
 
+        // send parallel API calls to artist, event, and location to check if data exists, if not it will create new item in database
+        console.log(formData)
+
+        const artistData = fullSetData.find(artist => artist = formData.artist_id)
+        if(!artistData) {
+            console.log("No artist found")
+        } else {
+            console.log("Artist found: " + artistData.artist.name)
+            console.log("Artist id: " + artistData.artist_id)
+        }
+        const eventData = fullSetData.find(event => event = formData.event_id)
+        if(!eventData) {
+            console.log("No event found")
+        } else {
+            console.log("Event found: " + eventData.event.name)
+            console.log("Event id: " + eventData.event_id)
+
+        }
+        const locationData = fullSetData.find(location => location = formData.location_id)
+        if(!locationData) {
+            console.log("No location found")
+        } else {
+            console.log("Location found: " + locationData.event.location.name)
+            console.log("Location id: " + locationData.event.location_id)
+
+        }
 
         // await fetch("http://localhost:9292/fullsets", {
         // method: "POST",
@@ -55,7 +75,7 @@ function AddSet({fullSetData, setFullSetData}) {
     }
 
 
-    
+
     // Event listeners to handle form change and submission
     
     function handleChange(e) {
@@ -70,7 +90,7 @@ function AddSet({fullSetData, setFullSetData}) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        submitSetFormData(e);
+        submitSetFormData();
 
     }
 
