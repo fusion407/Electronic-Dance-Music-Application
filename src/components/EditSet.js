@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 function EditSet({selectedSet, fullSetData, setFullSetData}) {
 
-    
+
     const[formData, setFormData] = useState({
         title: selectedSet.title,
         rating: selectedSet.rating,
@@ -43,15 +43,7 @@ function EditSet({selectedSet, fullSetData, setFullSetData}) {
         headers: {
             "Content-Type" : "application/json",
         },
-        body: JSON.stringify({
-            key : formData.id,
-            title : formData.title,
-            rating : formData.rating,
-            video_link: formData.video_link,
-            artist_id : formData.artist_id,
-            event_id : formData.event_id,
-            location_id : formData.location_id,
-        })
+        body: JSON.stringify(formData)
         })
             .then((r) => r.json())
             .then((updatedData) =>{

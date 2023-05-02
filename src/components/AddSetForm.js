@@ -1,4 +1,7 @@
 import { Input } from "@mui/material";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 
 const formStyle = {
     color : "#3b3a30",
@@ -6,13 +9,30 @@ const formStyle = {
 }
 
 
-function AddSetForm({formData, handleSubmit, handleChange}) {
+function AddSetForm({formData, setFormData, submitSetFormData}) {
+    const history = useHistory();
 
 
-    // Return function displays "Add Set Form",  event listeners in form trigger change and submit functions within AddSet component
+
+    function handleChange(e) {
+        e.preventDefault();
+        console.log(e.target.value)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    }
+
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        submitSetFormData();
+        history.push("/")
+
+    }
     return(
         <>
-        <h1>Add New Set</h1>
+        <h1>2. Please give a title, YouTube link, and quality rating</h1>
 
             <form className="addSetForm" onSubmit={handleSubmit}>
 
@@ -30,17 +50,6 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                 <div>
                     <Input
                         type="text"
-                        name="rating"
-                        value={formData.rating}
-                        onChange={handleChange}
-                        style={formStyle}
-                        placeholder="Rating"
-                    /> 
-                </div>
-
-                <div>
-                    <Input
-                        type="text"
                         name="video_link"
                         value={formData.video_link}
                         onChange={handleChange}
@@ -52,34 +61,12 @@ function AddSetForm({formData, handleSubmit, handleChange}) {
                 <div>
                     <Input
                         type="text"
-                        name="artist_id"
-                        value={formData.artist_id}
+                        name="rating"
+                        value={formData.rating}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Artist"
-                    />
-                </div>
-
-                <div>
-                    <Input
-                        type="text"
-                        name="event_id"
-                        value={formData.event_id}
-                        onChange={handleChange}
-                        style={formStyle}
-                        placeholder="Event"
-                    />
-                </div>
-
-                <div>
-                    <Input
-                        type="text"
-                        name="location_id"
-                        value={formData.location_id}
-                        onChange={handleChange}
-                        style={formStyle}
-                        placeholder="Location"
-                    />
+                        placeholder="Rating"
+                    /> 
                 </div>
 
                 <div>

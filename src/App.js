@@ -12,14 +12,56 @@ function App() {
 
 
   const [fullSetData, setFullSetData] = useState()
+  const[artistData, setArtistData] = useState();
+  const[eventData, setEventData] = useState();
+  const[locationData, setLocationData] = useState();
   const [selectedSet, setSelectedSet] = useState()
 
   // Fetch all set data upon initial render
   useEffect(() => {
-    console.log("fetching data...")
+    console.log("fetching ALL data...")
     loadAllSetData();
+    loadArtistData();
+    loadEventData();
+    loadLocationData();
   }, [])
 
+  const loadArtistData = async () =>{
+    await fetch(`http://localhost:9292/artists`, {
+      method: "GET",
+      headers: {
+          "Content-Type" : "application/json",
+      },
+      })
+          .then((r) => r.json())
+          .then(setArtistData)
+          .catch((error) => console.log(error))
+    
+  }
+  const loadEventData = async () =>{
+    await fetch(`http://localhost:9292/events`, {
+      method: "GET",
+      headers: {
+          "Content-Type" : "application/json",
+      },
+      })
+          .then((r) => r.json())
+          .then(setEventData)
+          .catch((error) => console.log(error))
+    
+  }
+  const loadLocationData = async () =>{
+    await fetch(`http://localhost:9292/locations`, {
+      method: "GET",
+      headers: {
+          "Content-Type" : "application/json",
+      },
+      })
+          .then((r) => r.json())
+          .then(setLocationData)
+          .catch((error) => console.log(error))
+    
+  }
   // Set the state of fullSetData with fetched data
   const loadAllSetData = async () => {
     await fetch("http://localhost:9292/fullsets", {
@@ -31,10 +73,9 @@ function App() {
           .then((r) => r.json())
           .then(setFullSetData)
           .catch((error) => console.log(error))
+    
   }
 
-
-  console.log(fullSetData)
 
 
   return (
@@ -58,6 +99,9 @@ function App() {
           <AddSet 
             fullSetData={fullSetData}
             setFullSetData={setFullSetData} 
+            artistData={artistData}
+            eventData={eventData}
+            locationData={locationData}
           />
         </Route>
 
