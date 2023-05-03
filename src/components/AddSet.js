@@ -14,10 +14,20 @@ function AddSet({fullSetData, setFullSetData, artistData, eventData, locationDat
         title: '',
         rating: '',
         video_link: '',
+        artist: '',
+        event: '',
+        location: ''
     });
     const[dropdownSelected, setDropdownSelected] = useState(false)
 
-
+    function handleChange(e) {
+        e.preventDefault();
+        console.log(e.target.value)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    }
 
 
     // POST submitted form data
@@ -78,12 +88,15 @@ function AddSet({fullSetData, setFullSetData, artistData, eventData, locationDat
         <>
             {dropdownSelected ? 
                 <AddSetForm 
+                    handleChange={handleChange}
                     formData={formData}
                     setFormData={setFormData}
                     submitSetFormData={submitSetFormData}
                 />
             :
                 <AddSetDropdowns
+                    handleChange={handleChange}
+                    formData={formData}
                     artistData={artistData}
                     eventData={eventData}
                     locationData={locationData}

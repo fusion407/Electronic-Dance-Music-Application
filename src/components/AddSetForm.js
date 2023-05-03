@@ -9,20 +9,8 @@ const formStyle = {
 }
 
 
-function AddSetForm({formData, setFormData, submitSetFormData}) {
+function AddSetForm({handleChange, formData, setFormData, submitSetFormData}) {
     const history = useHistory();
-
-
-
-    function handleChange(e) {
-        e.preventDefault();
-        console.log(e.target.value)
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    }
-
 
     function handleSubmit(e) {
         e.preventDefault();

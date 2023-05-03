@@ -1,6 +1,9 @@
 import { Input } from "@mui/material";
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -19,6 +22,7 @@ const dropdownStyle = {
 
 function AddSetDropdowns({
     handleChange, 
+    formData,
     artistData, 
     eventData, 
     locationData, 
@@ -32,11 +36,7 @@ function AddSetDropdowns({
     }) {
 
 
-    const[formData, setFormData] = useState({
-        artist: '',
-        event: '',
-        location: '',
-    });
+
 
 
     // add state for artist, event, and location
@@ -59,14 +59,7 @@ function AddSetDropdowns({
     const handleChangeLocation = (event) => {
       setSelectedLocation(parseInt(event.target.value));
     };
-    function handleChange(e) {
-        e.preventDefault();
-        console.log(e.target.value)
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    }
+
     function handleSubmitDropdownItems(e) {
         e.preventDefault();
         console.log("selected artist: " + selectedArtist)
@@ -93,12 +86,12 @@ function AddSetDropdowns({
             <form className="addSetForm" onSubmit={handleSubmitDropdownItems}>
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl style={dropdownStyle} fullWidth>
-                      <InputLabel id="demo-simple-select-label">Artist</InputLabel>
+                      <InputLabel id="demo-simple-select-label">Select</InputLabel>
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={selectedArtist}
-                        label="Age"
+                        label="Artist"
                         onChange={handleChangeArtist}
                       >
                         {artistData ? artistList : ''}
@@ -108,23 +101,29 @@ function AddSetDropdowns({
                 <div>
                     <Input
                         type="text"
-                        name="artist_id"
-                        value={formData.artist_id}
+                        name="artist"
+                        value={formData.artist}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Artist"
+                        placeholder="New Artist"
                     />
+                    <Button 
+                        sx={{marginLeft : "2rem"}}
+                        variant="contained"
+                        >
+                      Add
+                    </Button>
                 </div>
 
 
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl style={dropdownStyle} fullWidth>
-                      <InputLabel id="demo-simple-select-label">Event</InputLabel>
+                      <InputLabel id="demo-simple-select-label">Select</InputLabel>
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         value={selectedEvent}
-                        label="Age"
+                        label="Event"
                         
                         onChange={handleChangeEvent}
                       >
@@ -135,18 +134,24 @@ function AddSetDropdowns({
                 <div>
                     <Input
                         type="text"
-                        name="event_id"
-                        value={formData.event_id}
+                        name="event"
+                        value={formData.event}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Event"
+                        placeholder="New Event"
                     />
+                    <Button 
+                        sx={{marginLeft : "2rem"}}
+                        variant="contained"
+                        >
+                      Add
+                    </Button>
                 </div>
 
 
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl style={dropdownStyle} fullWidth>
-                      <InputLabel id="demo-simple-select-label">Location</InputLabel>
+                      <InputLabel id="demo-simple-select-label">Select</InputLabel>
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
@@ -162,12 +167,18 @@ function AddSetDropdowns({
                 <div>
                     <Input
                         type="text"
-                        name="location_id"
-                        value={formData.location_id}
+                        name="location"
+                        value={formData.location}
                         onChange={handleChange}
                         style={formStyle}
-                        placeholder="Location"
+                        placeholder="New Location"
                     />
+                    <Button 
+                        sx={{marginLeft : "2rem"}}
+                        variant="contained"
+                        >
+                      Add
+                    </Button>
                 </div>
 
                 <div>
