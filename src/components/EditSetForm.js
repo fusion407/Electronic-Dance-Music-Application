@@ -1,11 +1,68 @@
 import { Input } from "@mui/material";
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
+import { useEffect } from 'react'
 
 const formStyle = {
     color : "#3b3a30",
     margin : "5px"
 }
+const dropdownStyle = {
+    color : "#3b3a30",
+    margin : "5px",
+    width : "20%",
+    alignSelf : "center"
+}
 
-function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
+function EditSetForm({
+    formData, 
+    handleSubmit, 
+    handleChange, 
+    handleChangeSelectedData,
+
+    selectedSet,
+
+    artistData, 
+    selectedArtist,
+    handleChangeArtist,
+
+    eventData, 
+    selectedEvent,
+    handleChangeEvent,
+
+    locationData,
+    selectedLocation,
+    handleChangeLocation
+}) {
+    useEffect(() => {
+        console.log(formData.artist)
+    })
+
+    const artistList = artistData.map((data) => 
+        <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
+    )
+    const eventList = eventData.map((data) => 
+        <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
+    )
+    const locationList = locationData.map((data) => 
+        <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
+    )
+
+    // const handleChangeArtist = (event) => {
+    //     setSelectedArtist(parseInt(event.target.value));
+    //   };
+    // const handleChangeEvent = (event) => {
+    //   setSelectedEvent(parseInt(event.target.value));
+    // };
+
+
+    // const handleChangeLocation = (event) => {
+    //   setSelectedLocation(parseInt(event.target.value));
+    // };
+
     return(
         <>
 
@@ -22,6 +79,7 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                         style={formStyle}
                         placeholder={"title"}
                     />
+
                 </div>
 
                 <div>
@@ -47,36 +105,57 @@ function EditSetForm({formData, handleSubmit, handleChange, selectedSet}) {
                 </div>
 
                 <div>
-                    <Input
-                        type="text"
-                        name="artist_id"
-                        value={formData.artist_id}
-                        onChange={handleChange}
-                        style={formStyle}
-                        placeholder={"artist"}
-                    />
+                    <h2>Artist:</h2>
+                    <Box sx={{ minWidth: 120 }}>
+                        <FormControl style={dropdownStyle} fullWidth>
+                          <InputLabel id="demo-simple-select-label">Select</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={formData.artist_id}
+                            label="Artist"
+                            onChange={handleChangeArtist}
+                          >
+                            {artistData ? artistList : ''}
+                          </Select>
+                        </FormControl>
+                    </Box>
                 </div>
 
                 <div>
-                    <Input
-                        type="text"
-                        name="event_id"
-                        value={formData.event_id}
-                        onChange={handleChange}
-                        style={formStyle}
-                        placeholder={"event"}
-                    />
+                    <h2>Event:</h2>
+                    <Box sx={{ minWidth: 120 }}>
+                        <FormControl style={dropdownStyle} fullWidth>
+                          <InputLabel id="demo-simple-select-label">Select</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={selectedEvent}
+                            label="event_id"
+                            onChange={handleChangeEvent}
+                          >
+                            {eventData ? eventList : ''}
+                          </Select>
+                        </FormControl>
+                    </Box>
                 </div>
 
                 <div>
-                    <Input
-                        type="text"
-                        name="location_id"
-                        value={formData.location_id}
-                        onChange={handleChange}
-                        style={formStyle}
-                        placeholder={"location"}
-                    />
+                    <h2>Location:</h2>
+                    <Box sx={{ minWidth: 120 }}>
+                        <FormControl style={dropdownStyle} fullWidth>
+                          <InputLabel id="demo-simple-select-label">Select</InputLabel>
+                          <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={selectedLocation}
+                            label="location_id"
+                            onChange={handleChangeLocation}
+                          >
+                            {locationData ? locationList : ''}
+                          </Select>
+                        </FormControl>
+                    </Box>
                 </div>
 
                 <div>

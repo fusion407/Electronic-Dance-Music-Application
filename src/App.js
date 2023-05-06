@@ -15,7 +15,20 @@ function App() {
   const[artistData, setArtistData] = useState();
   const[eventData, setEventData] = useState();
   const[locationData, setLocationData] = useState();
-  const [selectedSet, setSelectedSet] = useState()
+  const [selectedSet, setSelectedSet] = useState({
+    title: '',
+    rating: '',
+    video_link: '',
+    artist: '',
+    artist_id: '',
+    event: '',
+    event_id: '',
+    location: '',
+    location_id: ''
+  })
+  const[selectedArtist, setSelectedArtist] = useState('');
+  const[selectedEvent, setSelectedEvent] = useState('');
+  const[selectedLocation, setSelectedLocation] = useState('');
 
   // Fetch all set data upon initial render
   useEffect(() => {
@@ -73,10 +86,13 @@ function App() {
           .then((r) => r.json())
           .then(setFullSetData)
           .catch((error) => console.log(error))
-    
   }
 
 
+
+
+
+  
 
   return (
     <div className="App">
@@ -99,9 +115,18 @@ function App() {
           <AddSet 
             fullSetData={fullSetData}
             setFullSetData={setFullSetData} 
+        
             artistData={artistData}
+            selectedArtist={selectedArtist}
+            setSelectedArtist={setSelectedArtist}
+            
             eventData={eventData}
+            selectedEvent={selectedEvent}
+            setSelectedEvent={setSelectedEvent}
+
             locationData={locationData}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
           />
         </Route>
 
@@ -109,7 +134,21 @@ function App() {
           <EditSet 
             fullSetData={fullSetData}
             setFullSetData={setFullSetData} 
+
             selectedSet={selectedSet}
+            setSelectedSet={setSelectedSet}
+
+            artistData={artistData}
+            selectedArtist={selectedArtist}
+            setSelectedArtist={setSelectedArtist}
+            
+            eventData={eventData}
+            selectedEvent={selectedEvent}
+            setSelectedEvent={setSelectedEvent}
+
+            locationData={locationData}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
           />
         </Route>
 

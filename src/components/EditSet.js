@@ -1,16 +1,37 @@
 import EditSetForm from "./EditSetForm"
 import { useState } from 'react'
+import { useHistory } from "react-router-dom";
 
-function EditSet({selectedSet, fullSetData, setFullSetData}) {
+
+function EditSet({
+    selectedSet, 
+    setSelectedSet,
+
+    fullSetData, 
+    setFullSetData, 
+
+    artistData, 
+    selectedArtist,
+    setSelectedArtist, 
+
+    eventData, 
+    selectedEvent,
+    setSelectedEvent, 
+
+    locationData, 
+    selectedLocation,
+    setSelectedLocation
+}) {
+    const history = useHistory();
 
 
     const[formData, setFormData] = useState({
         title: selectedSet.title,
         rating: selectedSet.rating,
         video_link: selectedSet.video_link,
-        artist_id: selectedSet.artist,
-        event_id: selectedSet.event,
-        location_id: selectedSet.location
+        artist_id: selectedSet.artist_id,
+        event_id: selectedSet.event_id,
+        location_id: selectedSet.location_id
     });
 
 
@@ -19,22 +40,13 @@ function EditSet({selectedSet, fullSetData, setFullSetData}) {
             data.id === updatedData.id ? updatedData : data
         );
         setFullSetData(updateData)
+
     }
 
 
     async function submitSetFormData() {
         console.log("I SUBMIT EDIT DATA")
         console.log(formData)
-
-        // check if formData is empty
-        console.log("submitting....")
-        if(formData.title === '') {alert("Please input a title"); return;}
-        if(formData.rating === '') {alert("Please input a rating"); return;}
-        if(formData.video_link === '') {alert("Please input a video_link"); return;}
-        if(formData.artist === '') {alert("Please input a artist"); return;}
-        if(formData.event === '') {alert("Please input a event"); return;}
-        if(formData.location === '') {alert("Please input a location"); return;}
-        console.log("submitted")
         
         console.log("selected sets id: " + selectedSet.id)
 
@@ -61,12 +73,33 @@ function EditSet({selectedSet, fullSetData, setFullSetData}) {
             [e.target.name]: e.target.value,
         });
     }
+    const handleChangeSelectedData = (e) => {
+        e.preventDefault();
+        console.log("selected data has been changed: " + e.target.value + ", " + e.target.name)
+        console.log(e)
+        setSelectedSet({[e.target.name]: e.target.value})
+    }
+
+    const handleChangeArtist = (event) => {
+        setSelectedSet(event.target.value);
+        console.log("artist: " + event.target.value)
+        };
+  
+  
+    const handleChangeEvent = (event) => {
+      setSelectedEvent(parseInt(event.target.value));
+    };
+
+
+    const handleChangeLocation = (event) => {
+      setSelectedLocation(parseInt(event.target.value));
+    };
 
 
     function handleSubmit(e) {
         e.preventDefault();
         submitSetFormData(e);
-
+        history.push("/")
     }
 
 
@@ -74,10 +107,27 @@ function EditSet({selectedSet, fullSetData, setFullSetData}) {
         <>
 
             <EditSetForm 
+                handleChangeSelectedData={handleChangeSelectedData}
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit}
+                handleChangeArtist={handleChangeArtist}
+                handleChangeEvent={handleChangeEvent}
+                handleChangeLocation={handleChangeLocation}
+
                 selectedSet={selectedSet}
                 formData={formData}
+
+                artistData={artistData}
+                selectedArtist={selectedArtist}
+                setSelectedArtist={setSelectedArtist}
+
+                eventData={eventData}
+                selectedEvent={selectedEvent}
+                setSelectedEvent={setSelectedEvent}
+
+                locationData={locationData}
+                selectedLocation={selectedLocation}
+                setSelectedLocation={setSelectedLocation}
             />
 
         </>

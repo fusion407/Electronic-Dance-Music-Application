@@ -47,7 +47,7 @@ function AddSetDropdowns({
 
 
     const handleChangeArtist = (event) => {
-        setSelectedArtist(parseInt(event.target.value));
+      setSelectedArtist(parseInt(event.target.value));
       };
 
 
@@ -84,6 +84,7 @@ function AddSetDropdowns({
         <h1>1. Select your artist, event, and location</h1>
 
             <form className="addSetForm" onSubmit={handleSubmitDropdownItems}>
+                <h2>Artist</h2>
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl style={dropdownStyle} fullWidth>
                       <InputLabel id="demo-simple-select-label">Select</InputLabel>
@@ -117,6 +118,7 @@ function AddSetDropdowns({
 
 
                 <Box sx={{ minWidth: 120 }}>
+                    <h2>Event</h2>
                     <FormControl style={dropdownStyle} fullWidth>
                       <InputLabel id="demo-simple-select-label">Select</InputLabel>
                       <Select
@@ -150,6 +152,7 @@ function AddSetDropdowns({
 
 
                 <Box sx={{ minWidth: 120 }}>
+                    <h2>Location</h2>
                     <FormControl style={dropdownStyle} fullWidth>
                       <InputLabel id="demo-simple-select-label">Select</InputLabel>
                       <Select

@@ -14,8 +14,11 @@ function SetCardList({fullSetData, setSelectedSet, handleDeleteSet}) {
             rating={data.rating}
             video_link={data.video_link}
             artist={data.artist.name}
+            artist_id={data.artist_id}
             event={data.event.name}
+            event_id={data.event_id}
             location={data.location.name}
+            location_id={data.location_id}
             setSelectedSet={setSelectedSet}
             handleDeleteSet={handleDeleteSet}
         />

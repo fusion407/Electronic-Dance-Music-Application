@@ -3,13 +3,23 @@ import AddSetDropdowns from './AddSetDropdowns'
 import { useState, useEffect } from 'react'
 
 
-function AddSet({fullSetData, setFullSetData, artistData, eventData, locationData}) {
+function AddSet({
+    fullSetData, 
+    setFullSetData, 
+    artistData, 
+    selectedArtist,
+    setSelectedArtist,
+    eventData, 
+    selectedEvent,
+    setSelectedEvent,
+    locationData,
+    selectedLocation,
+    setSelectedLocation,
+}) {
     // const[artistData, setArtistData] = useState();
     // const[eventData, setEventData] = useState();
     // const[locationData, setLocationData] = useState();
-    const[selectedArtist, setSelectedArtist] = useState('');
-    const[selectedEvent, setSelectedEvent] = useState('');
-    const[selectedLocation, setSelectedLocation] = useState('');
+
     const[formData, setFormData] = useState({
         title: '',
         rating: '',
