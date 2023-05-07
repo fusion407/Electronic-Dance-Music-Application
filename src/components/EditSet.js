@@ -60,7 +60,7 @@ function EditSet({
 
 
     async function submitSetFormData() {
-        console.log("I SUBMIT EDIT DATA")
+        console.log("I SUBMIT EDIT DATA::::")
         console.log(formData)
         
         console.log("selected sets id: " + selectedSet.id)

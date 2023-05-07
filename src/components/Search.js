@@ -1,11 +1,17 @@
 import SearchForm from "./SearchForm"
 import SetCardList from "./SetCardList"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function Search({fullSetData, setFullSetData, setSelectedSet}) {
 
     // Boolean that determines the set lists visibility
     const[displayAllSets, setDisplayAllSets] = useState(false);
+
+    useEffect(() => {
+        console.log("card data: ")
+        console.log(fullSetData)
+    })
+
 
     // Event listener to handle above boolean
     function handleDisplayAllSets(e) {
