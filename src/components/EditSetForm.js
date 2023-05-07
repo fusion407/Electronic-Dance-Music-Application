@@ -19,23 +19,17 @@ const dropdownStyle = {
 
 function EditSetForm({
     formData, 
-    handleSubmit, 
     handleChange, 
+    handleSubmit, 
     handleChangeArtist,
-
-    selectedSet,
-
-    artistData, 
-    selectedArtist,
-
-    eventData, 
-    selectedEvent,
     handleChangeEvent,
-
+    handleChangeLocation,
+    artistData, 
+    eventData, 
     locationData,
-    selectedLocation,
-    handleChangeLocation
 }) {
+
+
     useEffect(() => {
         console.log(formData)
     })
@@ -50,17 +44,6 @@ function EditSetForm({
         <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
     )
 
-    // const handleChangeArtist = (event) => {
-    //     setSelectedArtist(parseInt(event.target.value));
-    //   };
-    // const handleChangeEvent = (event) => {
-    //   setSelectedEvent(parseInt(event.target.value));
-    // };
-
-
-    // const handleChangeLocation = (event) => {
-    //   setSelectedLocation(parseInt(event.target.value));
-    // };
 
     return(
         <>

@@ -3,29 +3,20 @@ import { useState } from 'react'
 import { useHistory } from "react-router-dom";
 
 
+
 function EditSet({
     selectedSet, 
-    setSelectedSet,
-
     fullSetData, 
     setFullSetData, 
-
     artistData, 
-    selectedArtist,
-    setSelectedArtist, 
-
     eventData, 
-    selectedEvent,
-    setSelectedEvent, 
-
     locationData, 
-    selectedLocation,
-    setSelectedLocation
 }) {
+
+
     const history = useHistory();
-
-
     const[formData, setFormData] = useState({
+
         title: selectedSet.title,
         rating: selectedSet.rating,
         video_link: selectedSet.video_link,
@@ -47,6 +38,7 @@ function EditSet({
             name : selectedSet.location
         },        
         location_id: selectedSet.location_id
+
     });
 
 
@@ -60,11 +52,6 @@ function EditSet({
 
 
     async function submitSetFormData() {
-        console.log("I SUBMIT EDIT DATA::::")
-        console.log(formData)
-        
-        console.log("selected sets id: " + selectedSet.id)
-
         await fetch(`http://localhost:9292/fullsets/${selectedSet.id}`, {
         method: "PATCH",
         headers: {
@@ -89,6 +76,7 @@ function EditSet({
         });
     }
 
+
     const handleChangeArtist = (e) => {
         e.preventDefault();
         console.log(e.target.value)
@@ -106,6 +94,7 @@ function EditSet({
         });
     }
 
+
     const handleChangeEvent = (e) => {
         e.preventDefault();
         console.log(e.target.value)
@@ -122,6 +111,7 @@ function EditSet({
             }
         });
     }
+
 
     const handleChangeLocation = (e) => {
         e.preventDefault();
@@ -141,11 +131,10 @@ function EditSet({
     }
   
 
-
     function handleSubmit(e) {
         e.preventDefault();
         submitSetFormData(e);
-        history.push("/")
+        history.push("/search")
     }
 
 
@@ -153,26 +142,15 @@ function EditSet({
         <>
 
             <EditSetForm 
+                formData={formData}
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit}
                 handleChangeArtist={handleChangeArtist}
                 handleChangeEvent={handleChangeEvent}
                 handleChangeLocation={handleChangeLocation}
-
-                selectedSet={selectedSet}
-                formData={formData}
-
                 artistData={artistData}
-                selectedArtist={selectedArtist}
-                setSelectedArtist={setSelectedArtist}
-
                 eventData={eventData}
-                selectedEvent={selectedEvent}
-                setSelectedEvent={setSelectedEvent}
-
                 locationData={locationData}
-                selectedLocation={selectedLocation}
-                setSelectedLocation={setSelectedLocation}
             />
 
         </>
