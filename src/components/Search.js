@@ -1,16 +1,11 @@
 import SearchForm from "./SearchForm"
 import SetCardList from "./SetCardList"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 function Search({fullSetData, setFullSetData, setSelectedSet}) {
 
     // Boolean that determines the set lists visibility
     const[displayAllSets, setDisplayAllSets] = useState(false);
-
-    useEffect(() => {
-        console.log("card data: ")
-        console.log(fullSetData)
-    })
 
 
     // Event listener to handle above boolean
@@ -25,7 +20,6 @@ function Search({fullSetData, setFullSetData, setSelectedSet}) {
 
     // DELETE selected set card
     const handleDeleteSet = async (id) => {
-        console.log(id)
         fetch(`http://localhost:9292/fullsets/${id}`, {
             method: "DELETE",
             headers: {

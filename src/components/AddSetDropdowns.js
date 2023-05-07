@@ -21,18 +21,19 @@ const dropdownStyle = {
 }
 
 function AddSetDropdowns({
-    handleChange, 
     formData,
+    newFormData,
+    submitArtistData,
+    submitEventData,
+    submitLocationData,
+    handleChangeNewData, 
+    handleChangeArtist,
+    handleChangeEvent,
+    handleChangeLocation,
     artistData, 
     eventData, 
     locationData, 
     setDropdownSelected,
-    selectedArtist,
-    setSelectedArtist,
-    selectedEvent,
-    setSelectedEvent,
-    selectedLocation,
-    setSelectedLocation
     }) {
 
 
@@ -46,25 +47,22 @@ function AddSetDropdowns({
     // each state will have render a list for each dropdown option
 
 
-    const handleChangeArtist = (event) => {
-      setSelectedArtist(parseInt(event.target.value));
-      };
+    // const handleChangeArtist = (event) => {
+    //   setSelectedArtist(parseInt(event.target.value));
+    //   };
 
 
-    const handleChangeEvent = (event) => {
-      setSelectedEvent(parseInt(event.target.value));
-    };
+    // const handleChangeEvent = (event) => {
+    //   setSelectedEvent(parseInt(event.target.value));
+    // };
 
 
-    const handleChangeLocation = (event) => {
-      setSelectedLocation(parseInt(event.target.value));
-    };
+    // const handleChangeLocation = (event) => {
+    //   setSelectedLocation(parseInt(event.target.value));
+    // };
 
     function handleSubmitDropdownItems(e) {
         e.preventDefault();
-        console.log("selected artist: " + selectedArtist)
-        console.log("selected event: " + selectedEvent)
-        console.log("selected location: " + selectedLocation)
 
         setDropdownSelected(true);
     }
@@ -91,7 +89,8 @@ function AddSetDropdowns({
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={selectedArtist}
+                        name="artist_id"
+                        value={formData.artist_id}
                         label="Artist"
                         onChange={handleChangeArtist}
                       >
@@ -103,14 +102,15 @@ function AddSetDropdowns({
                     <Input
                         type="text"
                         name="artist"
-                        value={formData.artist}
-                        onChange={handleChange}
+                        value={newFormData.artist}
+                        onChange={handleChangeNewData}
                         style={formStyle}
                         placeholder="New Artist"
                     />
                     <Button 
                         sx={{marginLeft : "2rem"}}
                         variant="contained"
+                        onClick={submitArtistData}
                         >
                       Add
                     </Button>
@@ -124,7 +124,8 @@ function AddSetDropdowns({
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={selectedEvent}
+                        name="event_id"
+                        value={formData.event_id}
                         label="Event"
                         
                         onChange={handleChangeEvent}
@@ -137,14 +138,16 @@ function AddSetDropdowns({
                     <Input
                         type="text"
                         name="event"
-                        value={formData.event}
-                        onChange={handleChange}
+                        value={newFormData.event}
+                        onChange={handleChangeNewData}
                         style={formStyle}
                         placeholder="New Event"
                     />
                     <Button 
                         sx={{marginLeft : "2rem"}}
                         variant="contained"
+                        onClick={submitEventData}
+
                         >
                       Add
                     </Button>
@@ -158,7 +161,8 @@ function AddSetDropdowns({
                       <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={selectedLocation}
+                        name="location_id"
+                        value={formData.location_id}
                         label="Age"
                         
                         onChange={handleChangeLocation}
@@ -171,14 +175,16 @@ function AddSetDropdowns({
                     <Input
                         type="text"
                         name="location"
-                        value={formData.location}
-                        onChange={handleChange}
+                        value={newFormData.location}
+                        onChange={handleChangeNewData}
                         style={formStyle}
                         placeholder="New Location"
                     />
                     <Button 
                         sx={{marginLeft : "2rem"}}
                         variant="contained"
+                        onClick={submitLocationData}
+
                         >
                       Add
                     </Button>

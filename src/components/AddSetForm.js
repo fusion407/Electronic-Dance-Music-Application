@@ -9,15 +9,10 @@ const formStyle = {
 }
 
 
-function AddSetForm({handleChange, formData, setFormData, submitSetFormData}) {
+function AddSetForm({handleChange, handleSubmit, formData, setFormData, submitSetFormData}) {
     const history = useHistory();
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        submitSetFormData();
-        history.push("/")
 
-    }
     return(
         <>
         <h1>2. Please give a title, YouTube link, and quality rating</h1>

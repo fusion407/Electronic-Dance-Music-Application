@@ -13,9 +13,6 @@ function App() {
   const [artistData, setArtistData] = useState();
   const [eventData, setEventData] = useState();
   const [locationData, setLocationData] = useState();
-  const [selectedArtist, setSelectedArtist] = useState('');
-  const [selectedEvent, setSelectedEvent] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
   const [selectedSet, setSelectedSet] = useState({
     title: '',
     rating: '',
@@ -114,20 +111,13 @@ function App() {
 
         <Route exact path="/addset">
           <AddSet 
-            fullSetData={fullSetData}
             setFullSetData={setFullSetData} 
-        
             artistData={artistData}
-            selectedArtist={selectedArtist}
-            setSelectedArtist={setSelectedArtist}
-            
+            setArtistData={setArtistData}
             eventData={eventData}
-            selectedEvent={selectedEvent}
-            setSelectedEvent={setSelectedEvent}
-
+            setEventData={setEventData}
             locationData={locationData}
-            selectedLocation={selectedLocation}
-            setSelectedLocation={setSelectedLocation}
+            setLocationData={setLocationData}
           />
         </Route>
 

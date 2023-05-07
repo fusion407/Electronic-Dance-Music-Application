@@ -1,35 +1,77 @@
 import AddSetForm from './AddSetForm'
 import AddSetDropdowns from './AddSetDropdowns'
 import { useState, useEffect } from 'react'
+import { useHistory } from "react-router-dom";
 
 
 function AddSet({
-    fullSetData, 
     setFullSetData, 
     artistData, 
-    selectedArtist,
-    setSelectedArtist,
+    setArtistData,
     eventData, 
-    selectedEvent,
-    setSelectedEvent,
+    setEventData,
     locationData,
-    selectedLocation,
-    setSelectedLocation,
+    setLocationData
 }) {
-    // const[artistData, setArtistData] = useState();
-    // const[eventData, setEventData] = useState();
-    // const[locationData, setLocationData] = useState();
+
+    // useEffect(() => {
+    //     console.log("data rendered......")
+    // }, [artistData])
+
+    const history = useHistory();
 
     const[formData, setFormData] = useState({
+
         title: '',
         rating: '',
         video_link: '',
+
+        artist: {
+            id : '',
+            name : ''
+        },
+        artist_id: '',
+
+        event: {
+            id : '',
+            name : ''
+        },        
+        event_id: '',
+
+        location: {
+            id : '',
+            name : ''
+        },        
+        location_id: ''
+
+    });
+    const [newFormData, setNewFormData] = useState({
         artist: '',
         event: '',
-        location: ''
-    });
+        location: '',
+      })
     const[dropdownSelected, setDropdownSelected] = useState(false)
 
+
+    async function submitSetFormData() {
+
+        console.log(formData)
+
+        await fetch("http://localhost:9292/fullsets", {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify(formData)
+        })
+            .then((r) => r.json())
+            .then((data) =>{
+                setFullSetData((fullSetData) => [...fullSetData, data])
+            })
+        .catch((error) => console.log(error))
+    }
+
+    
     function handleChange(e) {
         e.preventDefault();
         console.log(e.target.value)
@@ -39,59 +81,163 @@ function AddSet({
         });
     }
 
+    function handleChangeNewData(e) {
+        e.preventDefault();
+        console.log(e.target.value)
+        setNewFormData({
+            ...newFormData,
+            [e.target.name]: e.target.value,
+        });
+    }
 
-    // POST submitted form data
-    async function submitSetFormData() {
 
-        console.log(formData)
-        console.log(selectedArtist)
-        console.log(selectedEvent)
-        console.log(selectedLocation)
+    const handleChangeArtist = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
+        const foundArtist = artistData.find((element) => {
+            return element.id === e.target.value
+        })
+        console.log(foundArtist)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+            artist: {
+                id : foundArtist.id,
+                name : foundArtist.name
+            }
+        });
+    }
 
-        await fetch("http://localhost:9292/fullsets", {
+
+    const handleChangeEvent = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
+        const foundEvent = eventData.find((element) => {
+            return element.id === e.target.value
+        })
+        console.log(foundEvent)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+            event: {
+                id : foundEvent.id,
+                name : foundEvent.name
+            }
+        });
+    }
+
+
+    const handleChangeLocation = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
+        const foundLocation = locationData.find((element) => {
+            return element.id === e.target.value
+        })
+        console.log(foundLocation)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+            location: {
+                id : foundLocation.id,
+                name : foundLocation.name
+            }
+        });
+    }
+
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        submitSetFormData();
+        history.push("/")
+
+    }
+
+
+    async function postArtistData() {
+        console.log("posted new artist data: ")
+        await fetch(`http://localhost:9292/artists`, {
         method: "POST",
         headers: {
             "Content-Type" : "application/json",
         },
         body: JSON.stringify({
-            key : formData.id,
-            title : formData.title,
-            rating : formData.rating,
-            video_link: formData.video_link,
-            artist_id : selectedArtist,
-            event_id : selectedEvent,
-            location_id : selectedLocation
+            key : newFormData.id,
+            name : newFormData.artist
         })
         })
             .then((r) => r.json())
             .then((data) =>{
-                setFullSetData((fullSetData) => [...fullSetData, data])
+                setArtistData((artistData) => [...artistData, data])
+            })
+        .catch((error) => console.log(error))
+    }
+
+
+    async function postEventData() {
+        console.log("posted new event data: ")
+        await fetch(`http://localhost:9292/events`, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify({
+            key : newFormData.id,
+            name : newFormData.event
+        })
+        })
+            .then((r) => r.json())
+            .then((data) =>{
+                setEventData((eventData) => [...eventData, data])
+            })
+        .catch((error) => console.log(error))
+    }
+
+
+    async function postLocationData() {
+        console.log("posted new location data: ")
+        await fetch(`http://localhost:9292/locations`, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify({
+            key : newFormData.id,
+            name : newFormData.location
+        })
+        })
+            .then((r) => r.json())
+            .then((data) =>{
+                setLocationData((locationData) => [...locationData, data])
             })
         .catch((error) => console.log(error))
     }
 
 
 
-    // Event listeners to handle form change and submission
-    
+    function submitArtistData(e) {
+        e.preventDefault();
+        console.log("new artist data: ")
+        console.log(newFormData.artist)
+        postArtistData()
+        
+    }
 
 
-    // function handleChange(e) {
-    //     e.preventDefault();
-    //     console.log(e.target.value)
-    //     setFormData({
-    //         ...formData,
-    //         [e.target.name]: e.target.value,
-    //     });
-    // }
+    function submitEventData(e) {
+        e.preventDefault();
+        console.log("new event data: ")
+        console.log(newFormData.event)
+        postEventData()
+
+    }
 
 
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     submitSetFormData();
-
-    // }
-
+    function submitLocationData(e) {
+        e.preventDefault();
+        console.log("new location data: ")
+        console.log(newFormData.location)
+        postLocationData()
+    }
 
     
     return(
@@ -99,24 +245,26 @@ function AddSet({
             {dropdownSelected ? 
                 <AddSetForm 
                     handleChange={handleChange}
+                    handleSubmit={handleSubmit}
                     formData={formData}
                     setFormData={setFormData}
                     submitSetFormData={submitSetFormData}
                 />
             :
                 <AddSetDropdowns
-                    handleChange={handleChange}
                     formData={formData}
+                    newFormData={newFormData}
+                    submitArtistData={submitArtistData}
+                    submitEventData={submitEventData}
+                    submitLocationData={submitLocationData}
+                    handleChangeNewData={handleChangeNewData}
+                    handleChangeArtist={handleChangeArtist}
+                    handleChangeEvent={handleChangeEvent}
+                    handleChangeLocation={handleChangeLocation}                    
                     artistData={artistData}
                     eventData={eventData}
                     locationData={locationData}
                     setDropdownSelected={setDropdownSelected}
-                    selectedArtist={selectedArtist}
-                    setSelectedArtist={setSelectedArtist}
-                    selectedEvent={selectedEvent}
-                    setSelectedEvent={setSelectedEvent}
-                    selectedLocation={selectedLocation}
-                    setSelectedLocation={setSelectedLocation}
 
                 />
             }
