@@ -29,8 +29,23 @@ function EditSet({
         title: selectedSet.title,
         rating: selectedSet.rating,
         video_link: selectedSet.video_link,
+
+        artist: {
+            id : selectedSet.artist_id,
+            name : selectedSet.artist
+        },
         artist_id: selectedSet.artist_id,
+
+        event: {
+            id : selectedSet.event_id,
+            name : selectedSet.event
+        },        
         event_id: selectedSet.event_id,
+
+        location: {
+            id : selectedSet.location_id,
+            name : selectedSet.location
+        },        
         location_id: selectedSet.location_id
     });
 
@@ -67,33 +82,64 @@ function EditSet({
 
     function handleChange(e) {
         e.preventDefault();
-        console.log(e.target.value)
+        console.log(e.target)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
         });
     }
-    const handleChangeSelectedData = (e) => {
+
+    const handleChangeArtist = (e) => {
         e.preventDefault();
-        console.log("selected data has been changed: " + e.target.value + ", " + e.target.name)
-        console.log(e)
-        setSelectedSet({[e.target.name]: e.target.value})
+        console.log(e.target.value)
+        const foundArtist = artistData.find((element) => {
+            return element.id === e.target.value
+        })
+        console.log(foundArtist)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+            artist: {
+                id : foundArtist.id,
+                name : foundArtist.name
+            }
+        });
     }
 
-    const handleChangeArtist = (event) => {
-        setSelectedSet(event.target.value);
-        console.log("artist: " + event.target.value)
-        };
-  
-  
-    const handleChangeEvent = (event) => {
-      setSelectedEvent(parseInt(event.target.value));
-    };
+    const handleChangeEvent = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
+        const foundEvent = eventData.find((element) => {
+            return element.id === e.target.value
+        })
+        console.log(foundEvent)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+            event: {
+                id : foundEvent.id,
+                name : foundEvent.name
+            }
+        });
+    }
 
-
-    const handleChangeLocation = (event) => {
-      setSelectedLocation(parseInt(event.target.value));
-    };
+    const handleChangeLocation = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
+        const foundLocation = locationData.find((element) => {
+            return element.id === e.target.value
+        })
+        console.log(foundLocation)
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+            location: {
+                id : foundLocation.id,
+                name : foundLocation.name
+            }
+        });
+    }
+  
 
 
     function handleSubmit(e) {
@@ -107,7 +153,6 @@ function EditSet({
         <>
 
             <EditSetForm 
-                handleChangeSelectedData={handleChangeSelectedData}
                 handleChange={handleChange} 
                 handleSubmit={handleSubmit}
                 handleChangeArtist={handleChangeArtist}

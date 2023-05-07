@@ -21,13 +21,12 @@ function EditSetForm({
     formData, 
     handleSubmit, 
     handleChange, 
-    handleChangeSelectedData,
+    handleChangeArtist,
 
     selectedSet,
 
     artistData, 
     selectedArtist,
-    handleChangeArtist,
 
     eventData, 
     selectedEvent,
@@ -38,7 +37,7 @@ function EditSetForm({
     handleChangeLocation
 }) {
     useEffect(() => {
-        console.log(formData.artist)
+        console.log(formData)
     })
 
     const artistList = artistData.map((data) => 
@@ -112,6 +111,7 @@ function EditSetForm({
                           <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
+                            name="artist_id"
                             value={formData.artist_id}
                             label="Artist"
                             onChange={handleChangeArtist}
@@ -130,7 +130,8 @@ function EditSetForm({
                           <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            value={selectedEvent}
+                            name="event_id"
+                            value={formData.event_id}
                             label="event_id"
                             onChange={handleChangeEvent}
                           >
@@ -148,7 +149,8 @@ function EditSetForm({
                           <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            value={selectedLocation}
+                            name="location_id"
+                            value={formData.location_id}
                             label="location_id"
                             onChange={handleChangeLocation}
                           >
