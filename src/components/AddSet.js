@@ -1,6 +1,6 @@
 import AddSetForm from './AddSetForm'
 import AddSetDropdowns from './AddSetDropdowns'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useHistory } from "react-router-dom";
 
 
@@ -14,9 +14,6 @@ function AddSet({
     setLocationData
 }) {
 
-    // useEffect(() => {
-    //     console.log("data rendered......")
-    // }, [artistData])
 
     const history = useHistory();
 
@@ -45,15 +42,17 @@ function AddSet({
         location_id: ''
 
     });
+
     const [newFormData, setNewFormData] = useState({
         artist: '',
         event: '',
         location: '',
       })
+      
     const[dropdownSelected, setDropdownSelected] = useState(false)
 
 
-    async function submitSetFormData() {
+    async function postSetFormData() {
 
         console.log(formData)
 
@@ -71,8 +70,67 @@ function AddSet({
         .catch((error) => console.log(error))
     }
 
+    async function postArtistData() {
+        console.log("posted new artist data: ")
+        await fetch(`http://localhost:9292/artists`, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify({
+            key : newFormData.id,
+            name : newFormData.artist
+        })
+        })
+            .then((r) => r.json())
+            .then((data) =>{
+                setArtistData((artistData) => [...artistData, data])
+            })
+        .catch((error) => console.log(error))
+    }
+
+
+    async function postEventData() {
+        console.log("posted new event data: ")
+        await fetch(`http://localhost:9292/events`, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify({
+            key : newFormData.id,
+            name : newFormData.event
+        })
+        })
+            .then((r) => r.json())
+            .then((data) =>{
+                setEventData((eventData) => [...eventData, data])
+            })
+        .catch((error) => console.log(error))
+    }
+
+
+    async function postLocationData() {
+        console.log("posted new location data: ")
+        await fetch(`http://localhost:9292/locations`, {
+        method: "POST",
+        headers: {
+            "Content-Type" : "application/json",
+        },
+        body: JSON.stringify({
+            key : newFormData.id,
+            name : newFormData.location
+        })
+        })
+            .then((r) => r.json())
+            .then((data) =>{
+                setLocationData((locationData) => [...locationData, data])
+            })
+        .catch((error) => console.log(error))
+    }
+
     
-    function handleChange(e) {
+    function handleChangeFormData(e) {
         e.preventDefault();
         console.log(e.target.value)
         setFormData({
@@ -145,75 +203,6 @@ function AddSet({
     }
 
 
-    function handleSubmit(e) {
-        e.preventDefault();
-        submitSetFormData();
-        history.push("/")
-
-    }
-
-
-    async function postArtistData() {
-        console.log("posted new artist data: ")
-        await fetch(`http://localhost:9292/artists`, {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-        },
-        body: JSON.stringify({
-            key : newFormData.id,
-            name : newFormData.artist
-        })
-        })
-            .then((r) => r.json())
-            .then((data) =>{
-                setArtistData((artistData) => [...artistData, data])
-            })
-        .catch((error) => console.log(error))
-    }
-
-
-    async function postEventData() {
-        console.log("posted new event data: ")
-        await fetch(`http://localhost:9292/events`, {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-        },
-        body: JSON.stringify({
-            key : newFormData.id,
-            name : newFormData.event
-        })
-        })
-            .then((r) => r.json())
-            .then((data) =>{
-                setEventData((eventData) => [...eventData, data])
-            })
-        .catch((error) => console.log(error))
-    }
-
-
-    async function postLocationData() {
-        console.log("posted new location data: ")
-        await fetch(`http://localhost:9292/locations`, {
-        method: "POST",
-        headers: {
-            "Content-Type" : "application/json",
-        },
-        body: JSON.stringify({
-            key : newFormData.id,
-            name : newFormData.location
-        })
-        })
-            .then((r) => r.json())
-            .then((data) =>{
-                setLocationData((locationData) => [...locationData, data])
-            })
-        .catch((error) => console.log(error))
-    }
-
-
-
     function submitArtistData(e) {
         e.preventDefault();
         console.log("new artist data: ")
@@ -239,16 +228,22 @@ function AddSet({
         postLocationData()
     }
 
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        postSetFormData();
+        history.push("/")
+
+    }
+
     
     return(
         <>
             {dropdownSelected ? 
                 <AddSetForm 
-                    handleChange={handleChange}
+                    handleChangeFormData={handleChangeFormData}
                     handleSubmit={handleSubmit}
                     formData={formData}
-                    setFormData={setFormData}
-                    submitSetFormData={submitSetFormData}
                 />
             :
                 <AddSetDropdowns

@@ -1,6 +1,4 @@
 import { Input } from "@mui/material";
-import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 
 
 const formStyle = {
@@ -9,8 +7,11 @@ const formStyle = {
 }
 
 
-function AddSetForm({handleChange, handleSubmit, formData, setFormData, submitSetFormData}) {
-    const history = useHistory();
+function AddSetForm({
+    handleChangeFormData, 
+    handleSubmit, 
+    formData, 
+}) {
 
 
     return(
@@ -24,7 +25,7 @@ function AddSetForm({handleChange, handleSubmit, formData, setFormData, submitSe
                         type="text"
                         name="title"
                         value={formData.title}
-                        onChange={handleChange}
+                        onChange={handleChangeFormData}
                         style={formStyle}
                         placeholder="Title"
                     />
@@ -35,7 +36,7 @@ function AddSetForm({handleChange, handleSubmit, formData, setFormData, submitSe
                         type="text"
                         name="video_link"
                         value={formData.video_link}
-                        onChange={handleChange}
+                        onChange={handleChangeFormData}
                         style={formStyle}
                         placeholder="Video Link"
                     />
@@ -46,7 +47,7 @@ function AddSetForm({handleChange, handleSubmit, formData, setFormData, submitSe
                         type="text"
                         name="rating"
                         value={formData.rating}
-                        onChange={handleChange}
+                        onChange={handleChangeFormData}
                         style={formStyle}
                         placeholder="Rating"
                     /> 

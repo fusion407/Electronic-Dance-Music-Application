@@ -1,9 +1,6 @@
 import { Input } from "@mui/material";
-import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -36,37 +33,6 @@ function AddSetDropdowns({
     setDropdownSelected,
     }) {
 
-
-
-
-
-    // add state for artist, event, and location
-
-    // make useEffect hook to fetch individual data for artist, event, and location and set the states accordingly
-
-    // each state will have render a list for each dropdown option
-
-
-    // const handleChangeArtist = (event) => {
-    //   setSelectedArtist(parseInt(event.target.value));
-    //   };
-
-
-    // const handleChangeEvent = (event) => {
-    //   setSelectedEvent(parseInt(event.target.value));
-    // };
-
-
-    // const handleChangeLocation = (event) => {
-    //   setSelectedLocation(parseInt(event.target.value));
-    // };
-
-    function handleSubmitDropdownItems(e) {
-        e.preventDefault();
-
-        setDropdownSelected(true);
-    }
-
     const artistList = artistData.map((data) => 
         <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
     )
@@ -81,7 +47,7 @@ function AddSetDropdowns({
         <>
         <h1>1. Select your artist, event, and location</h1>
 
-            <form className="addSetForm" onSubmit={handleSubmitDropdownItems}>
+            <form className="addSetForm" onSubmit={() => setDropdownSelected(true)}>
                 <h2>Artist</h2>
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl style={dropdownStyle} fullWidth>
