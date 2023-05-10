@@ -32,7 +32,8 @@ function SetCard(props) {
           <Card sx={{ 
                 margin: "1rem", 
                 maxWidth: 345, 
-                background: "#b2c2bf"
+                background: "#32365a",
+                color: "#8300fd"
                 }} 
                 variant="outlined">
 
@@ -50,7 +51,7 @@ function SetCard(props) {
               <Typography 
                 component="div"
                 variant="body2" 
-                color="text.primary"
+                color="#8300fd"
               >
                 <div>
                   <span className="cardTitles">Artist:</span> {artist} 
@@ -63,10 +64,10 @@ function SetCard(props) {
                   <span className="cardTitles">Location:</span> {location}
                 </div>
                 <div>
-                  <a href={video_link}>Video</a>
+                  <span className="cardTitles">Rating:</span> {rating}
                 </div>
                 <div>
-                  <span className="cardTitles">Rating:</span> {rating}
+                  <a className="video-link" href={video_link}>Click to watch</a>
                 </div>
 
               </Typography>

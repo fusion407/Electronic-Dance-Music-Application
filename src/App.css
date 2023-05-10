@@ -1,35 +1,32 @@
 .App {
   text-align: center;
-  background-color: #eaece5;
+  background-color: #9162bd;
   color: #3b3a30;
   min-height: 100vh;
 }
+
 html {
   background: #282c34;
 }
-.App-logo {
-  margin-top: 1rem;
-  margin-bottom: -2rem;
+
+img {
+  width: auto;
+  height: fit-content;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
 .navTitle {
   margin-bottom : -3em;
 }
+
 .App-header {
-  background-color: #3b3a30;
-  /* min-height: 100vh; */
+  background-color: #32365a;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(3px + 2vmin);
   border-style: solid;
-  border-color: #b2c2bf;
+  border-color: #38e471;
   border-left: hidden; 
   border-right: hidden; 
   border-top: hidden; 
@@ -37,9 +34,11 @@ html {
 
   color: #3b3a30;
 }
+
 .searchForm{
   color: #3b3a30;
 }
+
 .setCardList {
   display: flex;
   flex-wrap: wrap;
@@ -48,6 +47,7 @@ html {
   justify-content: center;
   align-items: flex-start;
 }
+
 .setCard {
   width: 350px;
   height: auto;
@@ -58,24 +58,31 @@ html {
 .cardTitles {
   font-weight: bold;
 }
+.video-link {
+  color: #a85bf0;
+  text-decoration: none;
+}
+.video-link:hover {
+  color: "#3b3a30"
+}
+
 fieldset {
   border-left : hidden;
   border-right : hidden;
   font-size: 20px;
 }
-/* h3 {
-  text-decoration: underline;
-} */
 
-.App-link {
-  color: #61dafb;
+.addSetDropdownBox {
+  margin-bottom: 1rem;
 }
 
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+/* mobile */
+@media (min-width: 320px) and (max-width: 480px) {
+  
+  img {
+    width: auto;
+    height: 200px;
   }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+  
+}

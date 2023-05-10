@@ -7,14 +7,15 @@ const linkStyles = {
     flexdirection: "row",
     aligncontent: "center",
     justifycontent: "center",
+    height: "1rem",
     width: "5em",
     borderStyle: "solid",
     borderColor: "#b2c2bf",
     padding: "1em",
     margin: "2em 6px 6px",
-    background: "#b2c2bf",
+    background: "#32365a",
     textDecoration: "none",
-    color: "black",
+    color: "#38e471",
   };
 
 
@@ -33,7 +34,7 @@ function NavBar() {
             exact
             style={linkStyles}
             activeStyle={{
-              background: "#c0ded9",
+              background: "#44497a",
             }}
           >
             Home
@@ -45,7 +46,7 @@ function NavBar() {
             exact
             style={linkStyles}
             activeStyle={{
-              background: "#c0ded9",
+              background: "#44497a",
             }}
           >
             Search
@@ -57,7 +58,7 @@ function NavBar() {
             exact
             style={linkStyles}
             activeStyle={{
-              background: "#c0ded9",
+              background: "#44497a",
             }}
           >
             Add Set

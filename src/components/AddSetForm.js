@@ -3,7 +3,7 @@ import { Input } from "@mui/material";
 
 const formStyle = {
     color : "#3b3a30",
-    margin : "5px"
+    margin : "1rem"
 }
 
 
@@ -21,35 +21,38 @@ function AddSetForm({
             <form className="addSetForm" onSubmit={handleSubmit}>
 
                 <div>
+                    <h2>Title: </h2>
                     <Input
                         type="text"
                         name="title"
                         value={formData.title}
                         onChange={handleChangeFormData}
                         style={formStyle}
-                        placeholder="Title"
+                        placeholder="Enter"
                     />
                 </div>
 
                 <div>
+                    <h2>Youtube link: </h2>
                     <Input
                         type="text"
                         name="video_link"
                         value={formData.video_link}
                         onChange={handleChangeFormData}
                         style={formStyle}
-                        placeholder="Video Link"
+                        placeholder="Enter"
                     />
                 </div>
 
                 <div>
+                    <h2>Rating</h2>
                     <Input
                         type="text"
                         name="rating"
                         value={formData.rating}
                         onChange={handleChangeFormData}
                         style={formStyle}
-                        placeholder="Rating"
+                        placeholder="Enter ( 0 - 10 )"
                     /> 
                 </div>
 

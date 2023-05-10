@@ -45,7 +45,16 @@ function Search({
     return (
         <>
 
-            <Button onClick={handleDisplayAllSets} variant="text">View All</Button>
+            <Button 
+                sx={{
+                    color: "#38e471"
+                }}
+                onClick={handleDisplayAllSets} 
+                variant="text"
+                // color="#38e471"
+                >
+                    {!displayAllSets ? "View All" : "Hide All"}
+            </Button>
 
             <div className="setCardList">
                 {displayAllSets ?
