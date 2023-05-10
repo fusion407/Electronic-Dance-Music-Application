@@ -4,7 +4,6 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
-import { useEffect } from 'react'
 
 const formStyle = {
     color : "#3b3a30",
@@ -29,10 +28,6 @@ function EditSetForm({
     locationData,
 }) {
 
-
-    useEffect(() => {
-        console.log(formData)
-    })
 
     const artistList = artistData.map((data) => 
         <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>

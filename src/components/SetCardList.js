@@ -1,11 +1,11 @@
 import SetCard from './SetCard'
 
-function SetCardList({fullSetData, setSelectedSet, handleDeleteSet}) {
+function SetCardList({
+    fullSetData, 
+    setSelectedSet, 
+    handleDeleteSet
+}) {
 
-    console.log(fullSetData)
-
-
-    // Iterate through all the data and assigning values to each card
     const fullSetDataList = fullSetData.map((data) =>
         <SetCard 
             key={data.id}

@@ -27,7 +27,6 @@ function App() {
 
 
   useEffect(() => {
-    console.log("fetching ALL data...")
     loadAllSetData();
     loadArtistData();
     loadEventData();
@@ -105,17 +104,21 @@ function App() {
           <Search 
             fullSetData={fullSetData}
             setFullSetData={setFullSetData}
+
             setSelectedSet={setSelectedSet}
           />
           </Route>
 
         <Route exact path="/addset">
           <AddSet 
-            setFullSetData={setFullSetData} 
+            setFullSetData={setFullSetData}
+
             artistData={artistData}
             setArtistData={setArtistData}
+
             eventData={eventData}
             setEventData={setEventData}
+
             locationData={locationData}
             setLocationData={setLocationData}
           />
@@ -125,10 +128,14 @@ function App() {
           <EditSet 
             fullSetData={fullSetData}
             setFullSetData={setFullSetData} 
+
             selectedSet={selectedSet}
             setSelectedSet={setSelectedSet}
+
             artistData={artistData}
+
             eventData={eventData}
+
             locationData={locationData}
           />
         </Route>

@@ -47,7 +47,7 @@ function AddSetDropdowns({
         <>
         <h1>1. Select your artist, event, and location</h1>
 
-            <form className="addSetForm" onSubmit={() => setDropdownSelected(true)}>
+            <form className="addSetForm">
                 <h2>Artist</h2>
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl style={dropdownStyle} fullWidth>
@@ -157,12 +157,14 @@ function AddSetDropdowns({
                 </div>
 
                 <div>
-                    <Input
-                        type="submit"
-                        name="submit"
-                        style={formStyle}
+                    <Button
+                        sx={{marginBottom : "2rem"}}
+                        onClick={() => setDropdownSelected(true)}
+                        variant="contained"
                         placeholder="Submit"
-                    />
+                    >
+                      Next
+                    </Button>
                 </div>
 
             </form>

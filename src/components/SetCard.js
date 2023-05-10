@@ -8,13 +8,21 @@ import { NavLink } from "react-router-dom";
 
 function SetCard(props) {
 
-  const {id, title, rating, video_link, artist, location, event, setSelectedSet, handleDeleteSet} = props
+  const {
+    id, 
+    title, 
+    rating, 
+    video_link, 
+    artist, 
+    location, 
+    event, 
+    setSelectedSet, 
+    handleDeleteSet
+  } = props
 
 
   // Event listener for the edit button, which routes to /edit page with selected cards values as default form values
   function handleSelectSet() {
-    console.log("set selected")
-    console.log(props)
     setSelectedSet(props)
   }
 

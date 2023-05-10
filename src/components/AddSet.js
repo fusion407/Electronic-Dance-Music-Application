@@ -53,9 +53,6 @@ function AddSet({
 
 
     async function postSetFormData() {
-
-        console.log(formData)
-
         await fetch("http://localhost:9292/fullsets", {
         method: "POST",
         headers: {
@@ -71,7 +68,6 @@ function AddSet({
     }
 
     async function postArtistData() {
-        console.log("posted new artist data: ")
         await fetch(`http://localhost:9292/artists`, {
         method: "POST",
         headers: {
@@ -91,7 +87,6 @@ function AddSet({
 
 
     async function postEventData() {
-        console.log("posted new event data: ")
         await fetch(`http://localhost:9292/events`, {
         method: "POST",
         headers: {
@@ -111,7 +106,6 @@ function AddSet({
 
 
     async function postLocationData() {
-        console.log("posted new location data: ")
         await fetch(`http://localhost:9292/locations`, {
         method: "POST",
         headers: {
@@ -132,7 +126,6 @@ function AddSet({
     
     function handleChangeFormData(e) {
         e.preventDefault();
-        console.log(e.target.value)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -141,7 +134,6 @@ function AddSet({
 
     function handleChangeNewData(e) {
         e.preventDefault();
-        console.log(e.target.value)
         setNewFormData({
             ...newFormData,
             [e.target.name]: e.target.value,
@@ -151,11 +143,9 @@ function AddSet({
 
     const handleChangeArtist = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
         const foundArtist = artistData.find((element) => {
             return element.id === e.target.value
         })
-        console.log(foundArtist)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -169,11 +159,9 @@ function AddSet({
 
     const handleChangeEvent = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
         const foundEvent = eventData.find((element) => {
             return element.id === e.target.value
         })
-        console.log(foundEvent)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -187,11 +175,9 @@ function AddSet({
 
     const handleChangeLocation = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
         const foundLocation = locationData.find((element) => {
             return element.id === e.target.value
         })
-        console.log(foundLocation)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -205,8 +191,6 @@ function AddSet({
 
     function submitArtistData(e) {
         e.preventDefault();
-        console.log("new artist data: ")
-        console.log(newFormData.artist)
         postArtistData()
         
     }
@@ -214,8 +198,6 @@ function AddSet({
 
     function submitEventData(e) {
         e.preventDefault();
-        console.log("new event data: ")
-        console.log(newFormData.event)
         postEventData()
 
     }
@@ -223,8 +205,6 @@ function AddSet({
 
     function submitLocationData(e) {
         e.preventDefault();
-        console.log("new location data: ")
-        console.log(newFormData.location)
         postLocationData()
     }
 
@@ -249,16 +229,20 @@ function AddSet({
                 <AddSetDropdowns
                     formData={formData}
                     newFormData={newFormData}
+
                     submitArtistData={submitArtistData}
                     submitEventData={submitEventData}
                     submitLocationData={submitLocationData}
+
                     handleChangeNewData={handleChangeNewData}
                     handleChangeArtist={handleChangeArtist}
                     handleChangeEvent={handleChangeEvent}
-                    handleChangeLocation={handleChangeLocation}                    
+                    handleChangeLocation={handleChangeLocation}
+
                     artistData={artistData}
                     eventData={eventData}
                     locationData={locationData}
+
                     setDropdownSelected={setDropdownSelected}
 
                 />

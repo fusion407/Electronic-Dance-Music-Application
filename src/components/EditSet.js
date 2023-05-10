@@ -69,7 +69,6 @@ function EditSet({
 
     function handleChange(e) {
         e.preventDefault();
-        console.log(e.target)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -79,11 +78,9 @@ function EditSet({
 
     const handleChangeArtist = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
         const foundArtist = artistData.find((element) => {
             return element.id === e.target.value
         })
-        console.log(foundArtist)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -97,11 +94,9 @@ function EditSet({
 
     const handleChangeEvent = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
         const foundEvent = eventData.find((element) => {
             return element.id === e.target.value
         })
-        console.log(foundEvent)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,
@@ -115,11 +110,9 @@ function EditSet({
 
     const handleChangeLocation = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
         const foundLocation = locationData.find((element) => {
             return element.id === e.target.value
         })
-        console.log(foundLocation)
         setFormData({
             ...formData,
             [e.target.name]: e.target.value,

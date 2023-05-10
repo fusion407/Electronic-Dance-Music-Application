@@ -1,14 +1,16 @@
-import SearchForm from "./SearchForm"
 import SetCardList from "./SetCardList"
 import { useState } from 'react'
+import Button from '@mui/material/Button';
 
-function Search({fullSetData, setFullSetData, setSelectedSet}) {
 
-    // Boolean that determines the set lists visibility
+function Search({
+    fullSetData, 
+    setFullSetData, 
+    setSelectedSet
+}) {
+
     const[displayAllSets, setDisplayAllSets] = useState(false);
 
-
-    // Event listener to handle above boolean
     function handleDisplayAllSets(e) {
         e.preventDefault();
         if(!displayAllSets) {
@@ -18,7 +20,6 @@ function Search({fullSetData, setFullSetData, setSelectedSet}) {
         }
     }
 
-    // DELETE selected set card
     const handleDeleteSet = async (id) => {
         fetch(`http://localhost:9292/fullsets/${id}`, {
             method: "DELETE",
@@ -43,9 +44,9 @@ function Search({fullSetData, setFullSetData, setSelectedSet}) {
 
     return (
         <>
-            <SearchForm 
-                handleDisplayAllSets={handleDisplayAllSets}
-            />
+
+            <Button onClick={handleDisplayAllSets} variant="text">View All</Button>
+
             <div className="setCardList">
                 {displayAllSets ?
                     <SetCardList 
