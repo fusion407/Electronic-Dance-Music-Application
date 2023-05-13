@@ -67,7 +67,6 @@ function AddSetForm({
                         }}
                         type="submit"
                         name="submit"
-                        // className="addSetTitle"
                         placeholder="Submit"
                     />
                 </div>

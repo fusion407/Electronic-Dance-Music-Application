@@ -143,7 +143,6 @@ function EditSetForm({
                           }}
                         type="submit"
                         name="submit"
-                        // className="addSetTitle"
                         placeholder={"title"}
                     />
                 </div>
