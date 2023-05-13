@@ -46,17 +46,15 @@ function AddSetDropdowns({
 
     return(
         <>
-        <h1>1. Select your artist, event, and location</h1>
+        <h1 className="addSetTitle">Select your artist, event, and location</h1>
 
             <form className="addSetForm">
               <div className="addSetDropdownBox">
                 <h2>Artist</h2>
                 <Box sx={{ minWidth: 120 }}>
                     <FormControl style={dropdownStyle} fullWidth>
-                      <InputLabel id="demo-simple-select-label">Select</InputLabel>
+                      <InputLabel id="artist-select-label">Select</InputLabel>
                       <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
                         name="artist_id"
                         value={formData.artist_id}
                         label="Artist"
@@ -76,7 +74,11 @@ function AddSetDropdowns({
                         placeholder="New Artist"
                     />
                     <Button 
-                        sx={{marginLeft : "2rem"}}
+                        sx={{
+                          marginLeft : "2rem",
+                          backgroundColor : "#32365a"
+
+                        }}
                         variant="contained"
                         onClick={submitArtistData}
                         >
@@ -89,10 +91,8 @@ function AddSetDropdowns({
                 <Box sx={{ minWidth: 120 }}>
                     <h2>Event</h2>
                     <FormControl style={dropdownStyle} fullWidth>
-                      <InputLabel id="demo-simple-select-label">Select</InputLabel>
+                      <InputLabel id="event-select-label">Select</InputLabel>
                       <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
                         name="event_id"
                         value={formData.event_id}
                         label="Event"
@@ -113,7 +113,11 @@ function AddSetDropdowns({
                         placeholder="New Event"
                     />
                     <Button 
-                        sx={{marginLeft : "2rem"}}
+                        sx={{
+                          marginLeft : "2rem",
+                          backgroundColor : "#32365a"
+
+                        }}
                         variant="contained"
                         onClick={submitEventData}
 
@@ -127,10 +131,8 @@ function AddSetDropdowns({
                 <Box sx={{ minWidth: 120 }}>
                     <h2>Location</h2>
                     <FormControl style={dropdownStyle} fullWidth>
-                      <InputLabel id="demo-simple-select-label">Select</InputLabel>
+                      <InputLabel id="location-select-label">Select</InputLabel>
                       <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
                         name="location_id"
                         value={formData.location_id}
                         label="Location"
@@ -151,7 +153,11 @@ function AddSetDropdowns({
                         placeholder="New Location"
                     />
                     <Button 
-                        sx={{marginLeft : "2rem"}}
+                        sx={{
+                          marginLeft : "2rem",
+                          backgroundColor : "#32365a"
+
+                        }}
                         variant="contained"
                         onClick={submitLocationData}
 
@@ -163,7 +169,11 @@ function AddSetDropdowns({
 
                 <div>
                     <Button
-                        sx={{marginBottom : "2rem"}}
+                        sx={{
+                          marginBottom : '5rem',
+                          backgroundColor : "#32365a"
+
+                        }}
                         onClick={() => setDropdownSelected(true)}
                         variant="contained"
                         placeholder="Submit"

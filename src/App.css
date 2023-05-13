@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Braah+One&display=swap');
+
 .App {
   text-align: center;
   background-color: #9162bd;
   color: #3b3a30;
   min-height: 100vh;
+  font-family: 'Braah One', sans-serif;
 }
 
 html {
@@ -74,8 +77,13 @@ fieldset {
 
 .addSetDropdownBox {
   margin-bottom: 1rem;
+  
 }
 
+.addSetTitle {
+  font-family: 'Braah One', sans-serif;
+  margin-top: 1rem;
+}
 
 /* mobile */
 @media (min-width: 320px) and (max-width: 480px) {

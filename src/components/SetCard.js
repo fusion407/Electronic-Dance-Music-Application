@@ -33,6 +33,7 @@ function SetCard(props) {
                 margin: "1rem", 
                 maxWidth: 345, 
                 background: "#32365a",
+
                 color: "#8300fd"
                 }} 
                 variant="outlined">
@@ -42,6 +43,7 @@ function SetCard(props) {
                 gutterBottom 
                 variant="h5" 
                 component="div"
+                fontFamily= "'Braah One', sans-serif"
               >
                 <h4>
                   {title}
@@ -51,6 +53,9 @@ function SetCard(props) {
               <Typography 
                 component="div"
                 variant="body2" 
+                fontFamily= "'Braah One', sans-serif"
+                fontSize="large"
+
                 color="#8300fd"
               >
                 <div>

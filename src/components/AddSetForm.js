@@ -16,7 +16,7 @@ function AddSetForm({
 
     return(
         <>
-        <h1>2. Please give a title, YouTube link, and quality rating</h1>
+        <h1 className="addSetTitle">Enter title, YouTube link, and quality rating</h1>
 
             <form className="addSetForm" onSubmit={handleSubmit}>
 
@@ -58,9 +58,16 @@ function AddSetForm({
 
                 <div>
                     <Input
+                        sx={{
+                            marginTop : '1rem',
+                            fontFamily: "'Braah One', sans-serif",
+                            fontSize: "larger",
+                            color: "#38e471",
+                            marginBottom : '5rem',  
+                        }}
                         type="submit"
                         name="submit"
-                        style={formStyle}
+                        // className="addSetTitle"
                         placeholder="Submit"
                     />
                 </div>
