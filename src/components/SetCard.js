@@ -83,10 +83,24 @@ function SetCard(props) {
               to="/edit"
               exact
               >
-                <Button onClick={handleSelectSet} size="small">Edit</Button>
+                <Button 
+                  sx={{
+                    color: "#38e471"
+                  }}
+                  onClick={handleSelectSet} 
+                  size="small"
+                  >Edit
+                </Button>
               </NavLink>
               
-              <Button onClick={() => handleDeleteSet(id)} size="small">Delete</Button>
+              <Button 
+                sx={{
+                  color: "#38e471"
+                }}
+                onClick={() => handleDeleteSet(id)} 
+                size="small"
+                >Delete
+              </Button>
             </CardActions>
 
           </Card>
