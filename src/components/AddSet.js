@@ -119,6 +119,7 @@ function AddSet({
             .then((r) => r.json())
             .then((data) =>{
                 setLocationData((locationData) => [...locationData, data])
+
             })
         .catch((error) => console.log(error))
     }
@@ -191,29 +192,55 @@ function AddSet({
 
     function submitArtistData(e) {
         e.preventDefault();
-        postArtistData()
-        
+        if(!newFormData.artist) {
+            return alert('Please enter an artist')
+        } else {
+            postArtistData()
+            setNewFormData({
+                ...newFormData,
+                artist : ''
+            })
+        } 
     }
 
 
     function submitEventData(e) {
         e.preventDefault();
-        postEventData()
-
+        if(!newFormData.event) {
+            return alert('Please enter an event')
+        } else {
+            postEventData()
+            setNewFormData({
+                ...newFormData,
+                event : ''
+            })
+        }
     }
 
 
     function submitLocationData(e) {
         e.preventDefault();
-        postLocationData()
+        if(!newFormData.location) {
+            return alert('Please enter a location')
+        } else {
+            postLocationData()
+            setNewFormData({
+                ...newFormData,
+                location : ''
+            })
+        }
     }
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        postSetFormData();
-        history.push("/")
-
+        if(!formData.title || !formData.video_link || !formData.rating) {
+            return alert("Please enter your input in the forms.")
+        }
+        else {
+            postSetFormData();
+            history.push("/")
+        }
     }
 
     

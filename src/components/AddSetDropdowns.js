@@ -44,9 +44,17 @@ function AddSetDropdowns({
         <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
     )
 
+    function handleSetDropdownSelections(e) {
+      e.preventDefault();
+      if(!formData.artist.name || !formData.event.name || !formData.location.name) {
+        return alert("Please select from the dropdowns.")
+      } else {
+        setDropdownSelected(true)
+      }
+    }
     return(
         <>
-        <h1 className="addSetTitle">Select your artist, event, and location</h1>
+        <h1 className="addSetTitle">Select your artist, event, and location from the dropdowns.</h1>
 
             <form className="addSetForm">
               <div className="addSetDropdownBox">
@@ -65,6 +73,7 @@ function AddSetDropdowns({
                     </FormControl>
                 </Box>
                 <div>
+                  <p>Artist not found?</p>
                     <Input
                         type="text"
                         name="artist"
@@ -104,6 +113,7 @@ function AddSetDropdowns({
                     </FormControl>
                 </Box>
                 <div>
+                  <p>Event not found?</p>
                     <Input
                         type="text"
                         name="event"
@@ -144,6 +154,7 @@ function AddSetDropdowns({
                     </FormControl>
                 </Box>
                 <div>
+                  <p>Location not found?</p>
                     <Input
                         type="text"
                         name="location"
@@ -174,7 +185,7 @@ function AddSetDropdowns({
                           backgroundColor : "#32365a"
 
                         }}
-                        onClick={() => setDropdownSelected(true)}
+                        onClick={handleSetDropdownSelections}
                         variant="contained"
                         placeholder="Submit"
                     >
