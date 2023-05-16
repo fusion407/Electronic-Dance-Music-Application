@@ -16,42 +16,36 @@ function AddSet({
 
 
     const history = useHistory();
-
-    const[formData, setFormData] = useState({
-
-        title: '',
-        rating: '',
-        video_link: '',
-
-        artist: {
-            id : '',
-            name : ''
-        },
-        artist_id: '',
-
-        event: {
-            id : '',
-            name : ''
-        },        
-        event_id: '',
-
-        location: {
-            id : '',
-            name : ''
-        },        
-        location_id: ''
-
-    });
-
+    
+    const[dropdownSelected, setDropdownSelected] = useState(false)
     const [newFormData, setNewFormData] = useState({
         artist: '',
         event: '',
         location: '',
       })
+    const[formData, setFormData] = useState({
+      title: '',
+      rating: '',
+      video_link: '',
+      artist: {
+          id : '',
+          name : ''
+      },
+      artist_id: '',
+      event: {
+          id : '',
+          name : ''
+      },        
+      event_id: '',
+      location: {
+          id : '',
+          name : ''
+      },        
+      location_id: ''
+    });
       
-    const[dropdownSelected, setDropdownSelected] = useState(false)
 
-
+    
     async function postSetFormData() {
         await fetch("http://localhost:9292/fullsets", {
         method: "POST",
@@ -66,6 +60,7 @@ function AddSet({
             })
         .catch((error) => console.log(error))
     }
+
 
     async function postArtistData() {
         await fetch(`http://localhost:9292/artists`, {
@@ -125,6 +120,7 @@ function AddSet({
     }
 
     
+
     function handleChangeFormData(e) {
         e.preventDefault();
         setFormData({
@@ -132,6 +128,7 @@ function AddSet({
             [e.target.name]: e.target.value,
         });
     }
+
 
     function handleChangeNewData(e) {
         e.preventDefault();
@@ -173,7 +170,6 @@ function AddSet({
         });
     }
 
-
     const handleChangeLocation = (e) => {
         e.preventDefault();
         const foundLocation = locationData.find((element) => {
@@ -193,7 +189,7 @@ function AddSet({
     function submitArtistData(e) {
         e.preventDefault();
         if(!newFormData.artist) {
-            return alert('Please enter an artist')
+            return alert('Please enter an artist.')
         } else {
             postArtistData()
             setNewFormData({
@@ -203,11 +199,10 @@ function AddSet({
         } 
     }
 
-
     function submitEventData(e) {
         e.preventDefault();
         if(!newFormData.event) {
-            return alert('Please enter an event')
+            return alert('Please enter an event.')
         } else {
             postEventData()
             setNewFormData({
@@ -217,11 +212,10 @@ function AddSet({
         }
     }
 
-
     function submitLocationData(e) {
         e.preventDefault();
         if(!newFormData.location) {
-            return alert('Please enter a location')
+            return alert('Please enter a location.')
         } else {
             postLocationData()
             setNewFormData({
@@ -230,7 +224,6 @@ function AddSet({
             })
         }
     }
-
 
     function handleSubmit(e) {
         e.preventDefault();

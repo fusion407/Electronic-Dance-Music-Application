@@ -21,7 +21,6 @@ function SetCard(props) {
   } = props
 
 
-  // Event listener for the edit button, which routes to /edit page with selected cards values as default form values
   function handleSelectSet() {
     setSelectedSet(props)
   }

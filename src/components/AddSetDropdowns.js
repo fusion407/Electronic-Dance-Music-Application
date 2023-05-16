@@ -34,6 +34,7 @@ function AddSetDropdowns({
     setDropdownSelected,
     }) {
 
+
     const artistList = artistData.map((data) => 
         <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
     )
@@ -44,6 +45,7 @@ function AddSetDropdowns({
         <MenuItem key={data.id} value={data.id}>{data.name}</MenuItem>
     )
 
+    
     function handleSetDropdownSelections(e) {
       e.preventDefault();
       if(!formData.artist.name || !formData.event.name || !formData.location.name) {
@@ -52,6 +54,8 @@ function AddSetDropdowns({
         setDropdownSelected(true)
       }
     }
+
+
     return(
         <>
         <h1 className="addSetTitle">Select your artist, event, and location from the dropdowns.</h1>

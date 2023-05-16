@@ -34,6 +34,7 @@ function App() {
   }, [])
 
 
+
   const loadArtistData = async () =>{
     await fetch(`http://localhost:9292/artists`, {
       method: "GET",
@@ -85,6 +86,7 @@ function App() {
           .catch((error) => console.log(error))
   }
 
+  
 
   return (
     <div className="App">

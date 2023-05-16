@@ -11,6 +11,8 @@ function Search({
 
     const[displayAllSets, setDisplayAllSets] = useState(false);
 
+
+
     function handleDisplayAllSets(e) {
         e.preventDefault();
         if(!displayAllSets) {
@@ -42,6 +44,7 @@ function Search({
     }
 
 
+
     return (
         <>
 
@@ -51,7 +54,6 @@ function Search({
                 }}
                 onClick={handleDisplayAllSets} 
                 variant="text"
-                // color="#38e471"
                 >
                     {!displayAllSets ? "View All" : "Hide All"}
             </Button>
