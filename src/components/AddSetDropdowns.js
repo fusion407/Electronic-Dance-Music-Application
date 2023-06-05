@@ -187,7 +187,6 @@ function AddSetDropdowns({
                         sx={{
                           marginBottom : '5rem',
                           backgroundColor : "#32365a"
-
                         }}
                         onClick={handleSetDropdownSelections}
                         variant="contained"
