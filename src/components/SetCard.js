@@ -33,7 +33,7 @@ function SetCard(props) {
                 maxWidth: 345, 
                 background: "#32365a",
 
-                color: "#8300fd"
+                color: "#9162bd"
                 }} 
                 variant="outlined">
 
@@ -55,7 +55,7 @@ function SetCard(props) {
                 fontFamily= "'Braah One', sans-serif"
                 fontSize="large"
 
-                color="#8300fd"
+                color="#9162bd"
               >
                 <div>
                   <span className="cardTitles">Artist:</span> {artist} 
