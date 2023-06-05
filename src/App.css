@@ -77,6 +77,10 @@ fieldset {
 
 .addSetDropdownBox {
   margin-bottom: 1rem;
+  border-style: solid;
+  border-bottom: hidden;
+  border-left: hidden;
+  border-right: hidden;
   
 }
 

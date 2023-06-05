@@ -3,7 +3,8 @@ import { Input } from "@mui/material";
 
 const formStyle = {
     color : "#3b3a30",
-    margin : "1rem"
+    margin : "1rem",
+    borderStyle : "solid",
 }
 
 

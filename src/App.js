@@ -86,7 +86,7 @@ function App() {
           .catch((error) => console.log(error))
   }
 
-  
+
 
   return (
     <div className="App">
@@ -130,9 +130,7 @@ function App() {
             setSelectedSet={setSelectedSet}
 
             artistData={artistData}
-
             eventData={eventData}
-
             locationData={locationData}
           />
         </Route>

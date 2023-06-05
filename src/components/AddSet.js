@@ -18,6 +18,7 @@ function AddSet({
     const history = useHistory();
     
     const[dropdownSelected, setDropdownSelected] = useState(false)
+    
     const [newFormData, setNewFormData] = useState({
         artist: '',
         event: '',

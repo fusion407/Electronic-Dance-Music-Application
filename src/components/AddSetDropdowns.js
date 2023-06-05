@@ -15,7 +15,7 @@ const dropdownStyle = {
     margin : "5px",
     marginBottom : "1rem",
     width : "20%",
-    alignSelf : "center"
+    alignSelf : "center",
 }
 
 function AddSetDropdowns({
