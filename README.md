@@ -10,6 +10,10 @@ The purpose of this project is to create a full stack application, with a fully 
 
 Link to backend repository: https://github.com/fusion407/sinatra-react-project-backend
 
+Blog: https://dev.to/fusion407/edm-concert-api-creating-a-full-stack-application-with-rubys-sinatra-and-reactjs-m2o
+
+Video: https://youtu.be/rKcGp0uN3WQ
+
 -------------
 
 ## Routes
