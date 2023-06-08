@@ -10,6 +10,8 @@ The purpose of this project is to create a full stack application, with a fully 
 
 Link to backend repository: https://github.com/fusion407/sinatra-react-project-backend
 
+-------------
+
 ## Routes
 
 '/' - Home page
@@ -18,8 +20,10 @@ Link to backend repository: https://github.com/fusion407/sinatra-react-project-b
 
 '/addset' - Add Set page: Creates new items for the database
 
+-------------
 
-## Image credit
+## Images and fonts:
 
-EDM.com
 https://edm.com/.image/t_share/MTcyNjIxMTAzOTg5MDA3NDQz/edc-las-vegas.jpg
+
+https://fonts.googleapis.com/css2?family=Braah+One&display=swap
