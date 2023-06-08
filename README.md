@@ -18,3 +18,8 @@ Link to backend repository: https://github.com/fusion407/sinatra-react-project-b
 
 '/addset' - Add Set page: Creates new items for the database
 
+
+## Image credit
+
+EDM.com
+https://edm.com/.image/t_share/MTcyNjIxMTAzOTg5MDA3NDQz/edc-las-vegas.jpg
