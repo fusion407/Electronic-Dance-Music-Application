@@ -1,4 +1,4 @@
-# EDM (Electronic Dance Music) Concert Set Database Application
+# EDM Concert Set Database Application
 
 ![Screenshot 2023-06-08 163504](https://github.com/fusion407/sinatra-react-project-frontend/assets/61926486/83edd5ef-11fd-4e1d-b23d-ebe79e4775d4)
 
