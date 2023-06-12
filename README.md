@@ -19,7 +19,7 @@ Video: https://youtu.be/rKcGp0uN3WQ
 
 Refer to my backend repository to setup the server.
 
-Fork and clone this repository, then run `npm start` in your console.
+Fork and clone this repository, then run `npm start` in your console to start react application.
 
 -------------
 
