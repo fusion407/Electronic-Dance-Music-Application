@@ -15,6 +15,13 @@ Blog: https://dev.to/fusion407/edm-concert-api-creating-a-full-stack-application
 Video: https://youtu.be/rKcGp0uN3WQ
 
 -------------
+## Usage
+
+Refer to my backend repository to setup the server.
+
+Fork and clone this repository, then run `npm start` in your console.
+
+-------------
 
 ## Routes
 
